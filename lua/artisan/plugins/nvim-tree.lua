@@ -9,14 +9,9 @@ local callback = require("nvim-tree.config").nvim_tree_callback
 
 -- Configuration (before setup)
 g.nvim_tree_auto_ignore_ft = { "dashboard" }
-g.nvim_tree_indent_markers = 1
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_add_trailing = 0
 
 -- Setup nvim-tree
 nvim_tree.setup {
-    auto_close = false,
     open_on_tab = false,
     update_cwd = true,
     actions = {
@@ -72,5 +67,13 @@ nvim_tree.setup {
                 { key = "<C-h>", cb = callback("toggle_dotfiles") },
             }
         },
+    },
+    renderer = {
+        highlight_git = true,
+        highlight_opened_files = "icon",
+        add_trailing = false,
+        indent_markers = {
+            enable = true,
+        }
     },
 }

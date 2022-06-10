@@ -209,7 +209,7 @@ return require("packer").startup({
 
         -- NeoScroll
         -- Smooth scroll
-        -- Github: 
+        -- Github:
         use {
             "karb94/neoscroll.nvim",
             event = "BufRead",
@@ -336,7 +336,7 @@ return require("packer").startup({
             event = "InsertEnter"
         }
 
-        -- CompletionEngine
+        -- CompletionEngine ok
         -- Github:
         use {
             "hrsh7th/nvim-cmp",
@@ -346,8 +346,8 @@ return require("packer").startup({
                 "hrsh7th/vim-vsnip",
             },
             config = function()
-                require("artisan.plugins.cmp")
-            end 
+                require("artisan.plugins.nvim-cmp")
+            end
         }
 
         -- CmpBuffer
@@ -395,7 +395,7 @@ return require("packer").startup({
         -- Github:
         use {
             "hrsh7th/cmp-nvim-lsp",
-            after = "nvim-lsp-installer"
+            after = "nvim-lspconfig"
         }
 
         use {'kevinhwang91/nvim-bqf'}
@@ -409,12 +409,16 @@ return require("packer").startup({
         -- Github:
         use {
             "neovim/nvim-lspconfig",
-            event = "BufEnter"
+            event = "BufEnter",
+            config = function()
+                require("artisan.plugins.lsp")
+            end
         }
 
         -- LSPInstaller
         -- Manage LSP servers
         -- Github: https://github.com/williamboman/nvim-lsp-installer/
+        --[[
         use {
             "williamboman/nvim-lsp-installer",
             after = "nvim-lspconfig",
@@ -422,6 +426,7 @@ return require("packer").startup({
                 require("artisan.plugins.lsp-installer")
             end
         }
+        ]]
 
         -- LSPSignature
         use {
@@ -438,7 +443,7 @@ return require("packer").startup({
             after = "cmp-nvim-lsp",
             requires = { "nvim-lua/plenary.nvim" },
             config = function()
-                require("artisan.plugins.metals")
+                require("artisan.plugins.lsp-metals")
             end
         }
 
@@ -469,8 +474,9 @@ return require("packer").startup({
         -- Manage several debuggers
         -- Github: https://github.com/Pocco81/DAPInstall.nvim
         use {
-            "Pocco81/DAPInstall.nvim",
-            after = "nvim-dap"
+            "Pocco81/dap-buddy.nvim",
+            after = "nvim-dap",
+            commit = "24923c3819a450a772bb8f675926d530e829665f"
         }
 
         -- DAPUI
@@ -478,7 +484,7 @@ return require("packer").startup({
         -- Github: https://github.com/rcarriga/nvim-dap-ui
         use {
             "rcarriga/nvim-dap-ui",
-            after = "DAPInstall.nvim",
+            after = "dap-buddy.nvim",
             config = function()
                 require("artisan.plugins.dap")
             end

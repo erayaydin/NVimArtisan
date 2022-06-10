@@ -24,10 +24,9 @@ local new_maker = function(filepath, bufnr, opts)
 end
 
 -- Find the name of the fd binary file in the operating system.
+local finder = "fd"
 if vim.fn.filereadable("/bin/fdfind") == 1 then
     finder = "fdfind"
-else
-    finder = "fd"
 end
 
 telescope.setup {

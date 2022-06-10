@@ -73,7 +73,7 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- }}}
 
 -- Kommentary {{{
-vim.g.kommentary_create_default_mappings = false
+-- vim.g.kommentary_create_default_mappings = false
 -- }}}
 
 -- LSP {{{
