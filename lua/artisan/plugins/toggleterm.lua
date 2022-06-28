@@ -1,4 +1,4 @@
-local installed, toggle_term = pcall(require, "toggle_term")
+local installed, toggle_term = pcall(require, "toggleterm")
 if not installed then
     return
 end
