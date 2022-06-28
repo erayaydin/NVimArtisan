@@ -74,7 +74,10 @@ return require("packer").startup({
             "akinsho/nvim-toggleterm.lua",
             config = function()
                 require("artisan.plugins.toggleterm")
-            end
+            end,
+            cmd = {
+                "ToggleTerm"
+            }
         }
 
         -- TrueZen
