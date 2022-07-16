@@ -267,6 +267,13 @@ local plugins = {
         end,
     },
 
+    ["nvim-telescope/telescope-project.nvim"] = {
+        requires = { "nvim-telescope/telescope.nvim" },
+        config = function()
+            require("telescope").load_extension("project")
+        end,
+    },
+
     -- }}}
 
     -- Code Completion {{{

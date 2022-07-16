@@ -63,6 +63,7 @@ local content = {
         button("SPC f o", "  Recently opened files"),
         button("SPC f r", "  Frecency/MRU"),
         button("SPC f g", "  Find word"),
+        button("SPC f p", "  Projects"),
     },
     opts = {
         spacing = 1,

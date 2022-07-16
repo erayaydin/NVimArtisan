@@ -105,6 +105,7 @@ local mappings = {
             ["<leader>fe"] = { "<cmd>Telescope env<CR>", "Environment Variables" },
             ["<leader>fr"] = { "<cmd>Telescope frecency<CR>", "Frecency" },
             ["<leader>fo"] = { "<cmd>Telescope oldfiles<CR>", "Recently Files" },
+            ["<leader>fp"] = { "<cmd>Telescope project<CR>", "Projects" },
         },
     },
 }
