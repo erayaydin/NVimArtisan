@@ -311,6 +311,14 @@ local plugins = {
         end,
     },
 
+    ["scalameta/nvim-metals"] = {
+        requires = { "nvim-lua/plenary.nvim" },
+        after = { "cmp-nvim-lsp" },
+        config = function()
+            require("artisan.plugins.nvim-metals")
+        end,
+    },
+
     -- }}}
 
     -- Debug Adapter Protocol {{{

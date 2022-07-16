@@ -24,3 +24,4 @@ vim.fn.sign_define("DapStopped", {
 })
 
 require("artisan.plugins.dap.python")
+require("artisan.plugins.dap.scala")
