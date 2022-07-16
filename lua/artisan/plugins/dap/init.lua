@@ -5,22 +5,34 @@ if not installed then
 end
 
 vim.fn.sign_define("DapBreakpoint", {
-    text = "",
+    text = "●",
     texthl = "DiagnosticSignError",
     linehl = "",
     numhl = "",
 })
+vim.fn.sign_define("DapBreakpointCondition", {
+    text = "●",
+    texthl = "DiagnosticSignWarn",
+    linehl = "",
+    numhl = "",
+})
+vim.fn.sign_define("DapLogPoint", {
+    text = "●",
+    texthl = "DiagnosticSignInfo",
+    linehl = "",
+    numhl = "",
+})
 vim.fn.sign_define("DapBreakpointRejected", {
-    text = "",
+    text = "●",
     texthl = "DiagnosticSignHint",
     linehl = "",
     numhl = "",
 })
 vim.fn.sign_define("DapStopped", {
     text = "",
-    texthl = "DiagnosticSignInformation",
+    texthl = "DiagnosticSignInfo",
     linehl = "DiagnosticUnderlineInfo",
-    numhl = "DiagnosticSignInformation",
+    numhl = "DiagnosticSignInfo",
 })
 
 require("artisan.plugins.dap.python")
