@@ -53,6 +53,7 @@ local plugins = {
     -- Fancy notifications
     -- Repo: https://github.com/rcarriga/nvim-notify
     ["rcarriga/nvim-notify"] = {
+        requires = { "nvim-telescope/telescope.nvim" },
         config = function()
             require("artisan.plugins.notify")
         end,
@@ -104,6 +105,13 @@ local plugins = {
         event = "VimEnter",
         config = function()
             require("artisan.plugins.which-key")
+        end,
+    },
+
+    ["goolord/alpha-nvim"] = {
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function()
+            require("artisan.plugins.alpha")
         end,
     },
 
@@ -207,31 +215,55 @@ local plugins = {
         cmd = "Telescope"
     },
 
+    -- Telescope
+    ["nvim-telescope/telescope.nvim"] = {
+        after = { "telescope-fzf-native.nvim" },
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("artisan.plugins.telescope")
+        end,
+    },
+
     -- Telescope Symbols Extension
     -- Picking symbols
     -- Repo: https://github.com/nvim-telescope/telescope-symbols.nvim
-    ["nvim-telescope/telescope-symbols.nvim"] = {},
+    ["nvim-telescope/telescope-symbols.nvim"] = {
+        requires = { "nvim-telescope/telescope.nvim" },
+    },
 
     -- Telescope Env Extension
     -- Watch environment variables
     -- Repo: https://github.com/LinArcX/telescope-env.nvim
-    ["LinArcX/telescope-env.nvim"] = {},
+    ["LinArcX/telescope-env.nvim"] = {
+        requires = { "nvim-telescope/telescope.nvim" },
+        config = function()
+            require("telescope").load_extension("env")
+        end,
+    },
 
     -- Telescope Conventional Commits Extension
     -- Repo: https://github.com/olacin/telescope-cc.nvim
-    ["olacin/telescope-cc.nvim"] = {},
+    ["olacin/telescope-cc.nvim"] = {
+        requires = { "nvim-telescope/telescope.nvim" },
+        config = function()
+            require("telescope").load_extension("conventional_commits")
+        end,
+    },
 
     -- Telescope Ports Extension
     -- Watch open ports
     -- INFO: Make sure its install on Linux only
-    ["LinArcX/telescope-ports.nvim"] = {},
-
-    -- Telescope
-    ["nvim-telescope/telescope.nvim"] = {
-        after = { "telescope-fzf-native.nvim", "telescope-env.nvim", "telescope-cc.nvim" },
-        requires = { "nvim-lua/plenary.nvim" },
+    ["LinArcX/telescope-ports.nvim"] = {
+        requires = { "nvim-telescope/telescope.nvim" },
         config = function()
-            require("artisan.plugins.telescope")
+            require("telescope").load_extension("ports")
+        end,
+    },
+
+    ["nvim-telescope/telescope-frecency.nvim"] = {
+        requires = { "tami5/sqlite.lua", "nvim-telescope/telescope.nvim" },
+        config = function()
+            require("telescope").load_extension("frecency")
         end,
     },
 

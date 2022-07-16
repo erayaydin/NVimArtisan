@@ -11,6 +11,7 @@ indent_blankline.setup({
         "packer",
         "lspinfo",
         "vista_king",
+        "alpha",
     },
     buftype_exclude = {
         "terminal",

@@ -91,6 +91,22 @@ local mappings = {
             ["<leader>du"] = { "<cmd>lua require(\"dapui\").toggle()<CR>", "Toggle Dap UI" },
         },
     },
+    Telescope = {
+        n = {
+            ["<leader>ff"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
+            ["<leader>fg"] = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
+            ["<leader>fb"] = { "<cmd>Telescope buffers<CR>", "Buffers" },
+            ["<leader>fh"] = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
+            ["<leader>fn"] = {
+                function()
+                    require("telescope").extensions.notify.notify()
+                end, "Notifications"
+            },
+            ["<leader>fe"] = { "<cmd>Telescope env<CR>", "Environment Variables" },
+            ["<leader>fr"] = { "<cmd>Telescope frecency<CR>", "Frecency" },
+            ["<leader>fo"] = { "<cmd>Telescope oldfiles<CR>", "Recently Files" },
+        },
+    },
 }
 
 local installed, which_key = pcall(require, "which-key")

@@ -10,6 +10,7 @@ lualine.setup({
         disabled_filetypes = {
             "NvimTree",
             "vista_kind",
+            "alpha",
         },
     },
     sections = {

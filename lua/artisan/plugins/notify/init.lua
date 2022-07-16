@@ -6,3 +6,4 @@ end
 
 vim.notify = notify
 vim.notify_once = notify
+require("telescope").load_extension("notify")

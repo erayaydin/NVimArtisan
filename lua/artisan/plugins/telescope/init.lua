@@ -37,15 +37,3 @@ telescope.setup({
 
 -- Load FZF native extension
 telescope.load_extension("fzf")
-
--- Load Notify extension
-telescope.load_extension("notify")
-
--- Load Env extension
-telescope.load_extension("env")
-
--- Load CC extension
-telescope.load_extension("conventional_commits")
-
--- Load Ports extension
-telescope.load_extension("ports")
