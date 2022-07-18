@@ -110,6 +110,16 @@ local mappings = {
             ["<leader>fp"] = { "<cmd>Telescope project<CR>", "Projects" },
         },
     },
+    Terminal = {
+        t = {
+            ["<esc>"] = { [[<C-\><C-n>]], "Escape terminal" },
+
+            ["<C-h>"] = { "<C-\\><C-n><C-w>h", "Jump to left" },
+            ["<C-j>"] = { "<C-\\><C-n><C-w>j", "Jump to down" },
+            ["<C-k>"] = { "<C-\\><C-n><C-w>k", "Jump to up" },
+            ["<C-l>"] = { "<C-\\><C-n><C-w>l", "Jump to right" },
+        },
+    }
 }
 
 local installed, which_key = pcall(require, "which-key")
@@ -127,13 +137,27 @@ else
     end
 end
 
+local terminal_mappings = {}
+
 for _, section in pairs(vim.deepcopy(mappings)) do
     for mode, mode_mappings in pairs(section) do
         for keybind, info in pairs(mode_mappings) do
-            local default = merge_tb("force", { mode = mode }, {})
-            local opts = merge_tb("force", default, info.opts or {})
-            info.opts = nil
-            bind(keybind, info, opts)
+            if mode == 't' then
+                terminal_mappings[keybind] = info
+            else
+                local default = merge_tb("force", { mode = mode }, {})
+                local opts = merge_tb("force", default, info.opts or {})
+                info.opts = nil
+                bind(keybind, info, opts)
+            end
         end
     end
 end
+
+function _G.set_terminal_keymaps()
+    for keybind, info in pairs(terminal_mappings) do
+        vim.api.nvim_buf_set_keymap(0, 't', keybind, info[1], { noremap = true })
+    end
+end
+
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
