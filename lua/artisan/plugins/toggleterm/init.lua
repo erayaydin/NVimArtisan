@@ -29,3 +29,17 @@ toggleterm.setup({
 -- Disable cursorline on terminal
 vim.cmd("autocmd WinEnter,BufEnter * if &ft is \"toggleterm\" | set nocursorline | else | set cursorline | endif")
 
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+local btm = Terminal:new({ cmd = "btm", hidden = true, direction = "float" })
+
+function _G.lazygit_toggle()
+    lazygit:toggle()
+end
+
+function _G.btm_toggle()
+    btm:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua lazygit_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>tb", "<cmd>lua btm_toggle()<CR>", {noremap = true, silent = true})

@@ -17,8 +17,8 @@ local mappings = {
             ["<C-c>"] = { "<cmd>%y+<CR>", "copy file content" },
 
             -- Line Number
-            ["<leader>nn"] = { "<cmd>set nu!<CR>", "toggle line numbers" },
-            ["<leader>nr"] = { "<cmd>set rnu!<CR>", "toggle relative number" },
+            ["<leader>ln"] = { "<cmd>set nu!<CR>", "toggle line numbers" },
+            ["<leader>lr"] = { "<cmd>set rnu!<CR>", "toggle relative number" },
         },
         v = {
             -- Do not copy the replaced text after pasting
@@ -51,8 +51,8 @@ local mappings = {
     NvimTree = {
         n = {
             ["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "toggle nvimtree" },
-            ["<leader>tr"] = { "<cmd>NvimTreeRefresh<CR>", "refresh nvimtree" },
-            ["<leader>tf"] = { "<cmd>NvimTreeFocus<CR>", "focus nvimtree" },
+            ["<leader>nr"] = { "<cmd>NvimTreeRefresh<CR>", "refresh nvimtree" },
+            ["<leader>nf"] = { "<cmd>NvimTreeFocus<CR>", "focus nvimtree" },
         },
     },
     LSP = {
