@@ -44,6 +44,8 @@ local mappings = {
 
             ["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "Next buffer in the bufferline" },
             ["<A-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "Previous buffer in the bufferline" },
+
+            ["<leader>q"] = { "<cmd>Bdelete<CR>", "Safe buffer delete" },
         },
     },
     NvimTree = {

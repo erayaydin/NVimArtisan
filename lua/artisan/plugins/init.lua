@@ -59,6 +59,10 @@ local plugins = {
         end,
     },
 
+    ["famiu/bufdelete.nvim"] = {
+        cmd = { "Bdelete", "Bwipeout" },
+    },
+
     -- }}}
 
     -- General {{{
