@@ -41,7 +41,7 @@ if cmp_installed then
     capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 end
 
-local on_attach = function(client, bufnr)
+local on_attach = function()
     print("Attached!")
 end
 
