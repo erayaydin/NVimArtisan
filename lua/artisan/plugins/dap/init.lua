@@ -1,4 +1,4 @@
-local installed, _ = pcall(require, "dap")
+local installed, dap = pcall(require, "dap")
 
 if not installed then
     return
@@ -35,5 +35,6 @@ vim.fn.sign_define("DapStopped", {
     numhl = "DiagnosticSignInfo",
 })
 
+dap.defaults.fallback.terminal_win_cmd = "ToggleTerm"
 require("artisan.plugins.dap.python")
 require("artisan.plugins.dap.scala")

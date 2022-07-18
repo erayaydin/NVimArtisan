@@ -11,6 +11,8 @@ lualine.setup({
             "NvimTree",
             "vista_kind",
             "alpha",
+            "terminal",
+            "toggleterm",
         },
     },
     sections = {

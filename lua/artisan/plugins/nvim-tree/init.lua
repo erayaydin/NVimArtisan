@@ -18,6 +18,7 @@ nvim_tree.setup({
                         "vista_kind",
                         "notify",
                         "help",
+                        "toggleterm",
                     },
                     buftype = {
                         "terminal",
@@ -27,7 +28,7 @@ nvim_tree.setup({
         },
     },
     open_on_setup = true,
-    ignore_ft_on_setup = { "dashboard" },
+    ignore_ft_on_setup = { "alpha" },
     diagnostics = {
         enable = true,
     },

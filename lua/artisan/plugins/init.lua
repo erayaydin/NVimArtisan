@@ -119,6 +119,14 @@ local plugins = {
         end,
     },
 
+    ["akinsho/toggleterm.nvim"] = {
+        tag = "v2.*",
+        cmd = { "ToggleTerm" },
+        config = function()
+            require("artisan.plugins.toggleterm")
+        end,
+    },
+
     -- }}}
 
     -- Code {{{
