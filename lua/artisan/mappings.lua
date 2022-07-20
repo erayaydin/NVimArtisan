@@ -6,11 +6,17 @@ local mappings = {
             -- Turn off highlight
             ["<ESC>"] = { "<cmd>noh<CR>", " no highlight" },
 
-            -- Switch windows
-            ["<C-h>"] = { "<C-w>h", "window left" },
-            ["<C-l>"] = { "<C-w>l", "window right" },
-            ["<C-k>"] = { "<C-w>k", "window up" },
-            ["<C-j>"] = { "<C-w>j", "window down" },
+            -- Switch splits
+            ["<C-h>"] = { "<C-w>h", "switch to left" },
+            ["<C-l>"] = { "<C-w>l", "switch to right" },
+            ["<C-k>"] = { "<C-w>k", "switch to up" },
+            ["<C-j>"] = { "<C-w>j", "switch to down" },
+
+            -- Resize
+            ["<A-h>"] = { "<CMD>vertical resize +2<CR>", "increase vertical size" },
+            ["<A-l>"] = { "<CMD>vertical resize -2<CR>", "decrease vertical size" },
+            ["<A-k>"] = { "<CMD>:resize -2<CR>", "decrease size"},
+            ["<A-j>"] = { "<CMD>:resize +2<CR>", "increase size" },
 
             -- Save file
             ["<C-s>"] = { "<cmd>w<CR>", "save file" },
@@ -84,7 +90,7 @@ local mappings = {
     DAP = {
         n = {
             ["<leader>dc"] = { "<cmd>lua require(\"dap\").continue()<CR>", "Start/continue to debug" },
-            ["<leader>dr"] = { "<cmd>lua require(\"dap\").repl.toggle()<CR>", "Toggle REPL" },
+            ["<leader>dr"] = { "<cmd>lua require(\"dap\").repl.toggle({height = 10})<CR>", "Toggle REPL" },
             ["<leader>dh"] = { "<cmd>lua require(\"dap.ui.widgets\").hover()<CR>", "" },
             ["<leader>dt"] = { "<cmd>lua require(\"dap\").toggle_breakpoint()<CR>", "Toggle breakpoint" },
             ["<leader>dso"] = { "<cmd>lua require(\"dap\").step_over()<CR>", "Step over to point" },
