@@ -389,6 +389,22 @@ local plugins = {
 
     -- }}}
 
+    -- Testing, Linting {{{
+
+    ["nvim-neotest/neotest"] = {
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "olimorris/neotest-phpunit"
+        },
+        config = function()
+            require("artisan.plugins.neotest")
+        end,
+    },
+
+    -- }}}
+
     -- Database {{{
 
     ["tpope/vim-dadbod"] = {},
