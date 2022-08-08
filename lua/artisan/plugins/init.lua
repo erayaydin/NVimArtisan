@@ -390,6 +390,17 @@ local plugins = {
 
     -- }}}
 
+    -- Tools {{{
+
+    ["NTBBloodbath/rest.nvim"] = {
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("artisan.plugins.rest")
+        end,
+    },
+
+    -- }}}
+
     -- Style {{{
 
     -- Tokyonight Theme

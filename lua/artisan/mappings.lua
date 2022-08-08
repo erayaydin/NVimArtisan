@@ -110,6 +110,13 @@ local mappings = {
             ["<leader>fp"] = { "<cmd>Telescope project<CR>", "Projects" },
         },
     },
+    Rest = {
+        n = {
+            ["<leader>hr"] = { "<Plug>RestNvim", "Run REST Http Request" },
+            ["<leader>hc"] = { "<Plug>RestNvimPreview", "Show Http Request Preview (curl)" },
+            ["<leader>hl"] = { "<Plug>RestNvimLast", "Re-run last REST HTTP Request" },
+        },
+    },
 }
 
 local installed, which_key = pcall(require, "which-key")
