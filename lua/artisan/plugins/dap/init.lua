@@ -35,8 +35,6 @@ vim.fn.sign_define("DapStopped", {
     numhl = "DiagnosticSignInfo",
 })
 
-dap.defaults.fallback.terminal_win_cmd = "ToggleTerm"
-
 require("artisan.plugins.dap.python")
 require("artisan.plugins.dap.scala")
 require("artisan.plugins.dap.php")
