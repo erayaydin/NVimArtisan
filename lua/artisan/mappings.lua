@@ -76,7 +76,7 @@ local mappings = {
             ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show description of symbol" },
 
             ["<leader>rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "rename symbol" },
-            ["<leader>f"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "format buffer" },
+            ["<leader>cf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "format buffer" },
             ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "show code actions" },
             ["<leader>cl"] = { "<cmd>lua vim.lsp.codelens.run()<CR>", "run code lens" },
         },
