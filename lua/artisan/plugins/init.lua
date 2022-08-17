@@ -223,7 +223,6 @@ local plugins = {
     -- Repo: https://github.com/nvim-telescope/telescope-fzf-native.nvim
     ["nvim-telescope/telescope-fzf-native.nvim"] = {
         run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-        cmd = "Telescope"
     },
 
     -- Telescope
@@ -369,6 +368,13 @@ local plugins = {
         end,
     },
 
+    ["jose-elias-alvarez/null-ls.nvim"] = {
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("artisan.plugins.null-ls")
+        end,
+    },
+
     -- }}}
 
     -- Debug Adapter Protocol {{{
@@ -384,6 +390,46 @@ local plugins = {
         after = "nvim-dap",
         config = function()
             require("artisan.plugins.dapui")
+        end,
+    },
+
+    -- }}}
+
+    -- Testing, Linting {{{
+
+    ["nvim-neotest/neotest"] = {
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "olimorris/neotest-phpunit"
+        },
+        config = function()
+            require("artisan.plugins.neotest")
+        end,
+    },
+
+    -- }}}
+
+    -- Database {{{
+
+    ["tpope/vim-dadbod"] = {},
+
+    ["kristijanhusak/vim-dadbod-ui"] = {
+        config = function()
+            vim.g.db_ui_env_variable_url = 'DATABASE_URL'
+            vim.g.db_ui_env_variable_name = 'DATABASE_NAME'
+        end,
+    },
+
+    -- }}}
+
+    -- Tools {{{
+
+    ["NTBBloodbath/rest.nvim"] = {
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("artisan.plugins.rest")
         end,
     },
 

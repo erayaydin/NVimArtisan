@@ -34,7 +34,7 @@ nvim_tree.setup({
     },
     filters = {
         custom = {
-            "\\.git",
+            "\\.git/",
             "node_modules",
             "\\.cache",
             "__pycache__",

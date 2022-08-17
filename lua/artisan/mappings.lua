@@ -82,7 +82,7 @@ local mappings = {
             ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show description of symbol" },
 
             ["<leader>rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "rename symbol" },
-            ["<leader>f"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "format buffer" },
+            ["<leader>cf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "format buffer" },
             ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "show code actions" },
             ["<leader>cl"] = { "<cmd>lua vim.lsp.codelens.run()<CR>", "run code lens" },
         },
@@ -126,6 +126,13 @@ local mappings = {
             ["<C-l>"] = { "<C-\\><C-n><C-w>l", "Jump to right" },
         },
     }
+    Rest = {
+        n = {
+            ["<leader>hr"] = { "<Plug>RestNvim", "Run REST Http Request" },
+            ["<leader>hc"] = { "<Plug>RestNvimPreview", "Show Http Request Preview (curl)" },
+            ["<leader>hl"] = { "<Plug>RestNvimLast", "Re-run last REST HTTP Request" },
+        },
+    },
 }
 
 local installed, which_key = pcall(require, "which-key")
