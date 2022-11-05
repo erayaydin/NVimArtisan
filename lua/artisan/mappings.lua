@@ -125,7 +125,7 @@ local mappings = {
             ["<C-k>"] = { "<C-\\><C-n><C-w>k", "Jump to up" },
             ["<C-l>"] = { "<C-\\><C-n><C-w>l", "Jump to right" },
         },
-    }
+    },
     Rest = {
         n = {
             ["<leader>hr"] = { "<Plug>RestNvim", "Run REST Http Request" },
