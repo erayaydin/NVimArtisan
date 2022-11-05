@@ -10,8 +10,7 @@ config.settings = {
   excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 config.on_attach = function()
   require("metals").setup_dap()

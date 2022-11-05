@@ -37,8 +37,7 @@ local cmp_installed, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 local capabilities = {}
 
 if cmp_installed then
-    capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+    capabilities = cmp_nvim_lsp.default_capabilities()
 end
 
 local on_attach = function()
