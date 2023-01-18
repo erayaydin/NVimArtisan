@@ -2,7 +2,6 @@ return function(lspconfig, before, capabilities)
 
     local on_attach = function(client, bufnr)
         before(client, bufnr)
-        print("Lua attached!")
     end
 
     lspconfig.sumneko_lua.setup({

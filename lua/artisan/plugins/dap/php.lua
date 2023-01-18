@@ -3,7 +3,7 @@ local dap = require("dap")
 dap.adapters.php = {
     type = "executable",
     command = "node",
-    args = { os.getenv("XDG_STATE_HOME") .. "/vscode-php-debug/out/phpDebug.js" },
+    args = { os.getenv("XDG_DATA_HOME") .. "/vscode-php-debug/out/phpDebug.js" },
 }
 
 dap.configurations.php = {
@@ -11,6 +11,11 @@ dap.configurations.php = {
         type = "php",
         request = "launch",
         name = "Listen for XDebug",
-        port = 9000
+        hostname = "0.0.0.0",
+        port = 9003,
+        log = true,
+        stopOnEntry = true,
+        serverSourceRoot = '/var/www/html/',
+        localSourceRoot = '/Users/eray/Code/TestingEnv/PHP/laravel-app/',
     },
 }
