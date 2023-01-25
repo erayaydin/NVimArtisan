@@ -23,11 +23,6 @@ return {
         branch = "fix/qf-syntax",
     },
 
-    -- FixCursorHold
-    -- Fixes CursorHold performance bug
-    -- Repo: https://github.com/antoinemadec/FixCursorHold.nvim
-    { 'antoinemadec/FixCursorHold.nvim' },
-
     -- }}}
 
     -- Utilities {{{
