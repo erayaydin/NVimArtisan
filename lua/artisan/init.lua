@@ -1,11 +1,14 @@
 local M = {}
 
+local builtins = require('artisan.utils.builtins')
+
 function M:run()
     -- Set options
     require("artisan.options")
 
     -- Disable builtin providers and plugins
-    require("artisan.builtin")
+    builtins.disable_plugins()
+    builtins.disable_providers()
 
     -- Set mappings
     require("artisan.mappings")
