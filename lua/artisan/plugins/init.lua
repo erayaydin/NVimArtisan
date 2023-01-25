@@ -6,6 +6,8 @@ end
 
 local fn, opt = vim.fn, vim.opt
 
+local path = require('artisan.utils.path')
+
 local plugins = {
     -- Lazy.nvim itself
     { 'folke/lazy.nvim', tag = 'stable' },
@@ -515,7 +517,7 @@ local plugins = {
 
 }
 
-opt.runtimepath:remove(fn.stdpath('data') .. "site/pack/lazy/opt/*")
+opt.runtimepath:remove(path.join(path.data(), 'site', 'pack', 'lazy', 'opt', '*'))
 local configured = xpcall(function()
     lazy.setup(plugins, {
         install = {
@@ -525,18 +527,18 @@ local configured = xpcall(function()
         ui = {
             border = 'rounded',
         },
-        root = fn.stdpath("data") .. '/site/pack/lazy/opt',
+        root = path.join(path.data(), 'site', 'pack', 'lazy', 'opt'),
         git = {
             timeout = 120,
         },
-        lockfile = fn.stdpath('config') .. '/lazy-lock.json',
+        lockfile = path.join(path.config(), 'lazy-lock.json'),
         performance = {
             rtp = {
               reset = false,
             },
         },
         readme = {
-            root = fn.stdpath('data') .. '/lazy/readme',
+            root = path.join(path.data(), 'lazy', 'readme'),
         },
     })
 end, debug.traceback)

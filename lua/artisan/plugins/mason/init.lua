@@ -3,11 +3,13 @@ if not installed then
     return
 end
 
+local path = require('artisan.utils.path')
+
 local function add_to_path(is_append)
     is_append = is_append or false
 
-    local default = vim.fn.stdpath('data') .. "/mason"
-    local bin = default .. '/bin'
+    local default = path.join(path.data(), 'mason')
+    local bin = path.join(default, 'bin')
 
     if vim.env.PATH:match(bin) then
         return
@@ -25,7 +27,7 @@ add_to_path()
 
 mason.setup({
     -- The directory in which to install packages.
-    install_root_dir = vim.fn.stdpath('data') .. '/mason',
+    install_root_dir = path.join(path.data(), 'mason'),
 
     -- Where Mason should put its bin location in your PATH. Can be one of:
     -- - "prepend" (default, Mason's bin location is put first in PATH)
