@@ -367,12 +367,27 @@ local plugins = {
     -- Repo:
     {
         'neovim/nvim-lspconfig',
-        event = 'BufEnter',
+        dependencies = { 'mason-lspconfig.nvim' },
         config = function()
-            require("artisan.plugins.lsp")
+            require('artisan.plugins.lsp')
         end,
     },
 
+    -- mason-lspconfig.nvim
+    -- Integration of lspconfig and mason.nvim
+    -- Repo: https://github.com/williamboman/mason-lspconfig.nvim
+    { 'williamboman/mason-lspconfig.nvim', lazy = true, dependencies = { 'williamboman/mason.nvim' } },
+
+    -- Mason
+    -- Portable package manager to install LSP servers
+    -- DAP servers, linters and formatters.
+    -- Repo: https://github.com/williamboman/mason.nvim
+    {
+        'williamboman/mason.nvim',
+        config = function()
+            require('artisan.plugins.mason')
+        end,
+    },
 
     -- LSP Signature
     -- LSP signature hint
