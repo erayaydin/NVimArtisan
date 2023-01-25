@@ -1,37 +1,39 @@
 -- vim:foldmethod=marker
-local installed, packer = pcall(require, "packer")
-
+local installed, lazy = pcall(require, "lazy")
 if not installed then
     return
 end
 
+local fn, opt = vim.fn, vim.opt
+
 local plugins = {
-    -- Packer itself
-    ["wbthomason/packer.nvim"] = {},
+    -- Lazy.nvim itself
+    { 'folke/lazy.nvim', tag = 'stable' },
 
     -- Performance {{{
 
     -- Impatient
     -- Improve startup time
     -- Repo: https://github.com/lewis6991/impatient.nvim
-    ["lewis6991/impatient.nvim"] = {
+    {
+        'lewis6991/impatient.nvim',
         config = function()
             require("impatient")
         end,
     },
 
-
     -- Filetype
     -- Replacement for the included filetype.vim
     -- Repo: https://github.com/nathom/filetype.nvim
-    ["abzcoding/filetype.nvim"] = {
+    {
+        'abzcoding/filetype.nvim',
         branch = "fix/qf-syntax",
     },
 
     -- FixCursorHold
     -- Fixes CursorHold performance bug
     -- Repo: https://github.com/antoinemadec/FixCursorHold.nvim
-    ["antoinemadec/FixCursorHold.nvim"] = {},
+    { 'antoinemadec/FixCursorHold.nvim' },
 
     -- }}}
 
@@ -40,35 +42,38 @@ local plugins = {
     -- Plenary
     -- Usefull lua functions
     -- Repo: https://github.com/nvim-lua/plenary.nvim
-    ["nvim-lua/plenary.nvim"] = { module = "plenary" },
+    {
+        'nvim-lua/plenary.nvim',
+        name = 'plenary',
+    },
 
     -- Popup
     -- Popup API
     -- Repo: https://github.com/nvim-lua/popup.nvim
-    ["nvim-lua/popup.nvim"] = {
-        requires = { "nvim-lua/plenary.nvim" },
+    {
+        'nvim-lua/popup.nvim',
+        dependencies = { 'plenary' },
     },
 
     -- Notify
     -- Fancy notifications
     -- Repo: https://github.com/rcarriga/nvim-notify
-    ["rcarriga/nvim-notify"] = {
-        requires = { "nvim-telescope/telescope.nvim" },
+    {
+        'rcarriga/nvim-notify',
         config = function()
-            require("artisan.plugins.notify")
+            require('artisan.plugins.notify')
         end,
     },
 
-    ["famiu/bufdelete.nvim"] = {
-        cmd = { "Bdelete", "Bwipeout" },
-    },
+    { 'famiu/bufdelete.nvim', cmd = { 'Bdelete', 'Bwipeout' } },
 
     -- }}}
 
     -- General {{{
 
     --
-    ["kyazdani42/nvim-web-devicons"] = {
+    {
+        'kyazdani42/nvim-web-devicons',
         config = function()
             require("artisan.plugins.nvim-web-devicons")
         end,
@@ -77,52 +82,56 @@ local plugins = {
     -- NvimTree
     -- File explorer tree
     -- Repo: https://github.com/kyazdani42/nvim-tree.lua
-    ["kyazdani42/nvim-tree.lua"] = {
-        after = { "nvim-web-devicons" },
+    {
+        'kyazdani42/nvim-tree.lua',
         config = function()
-            require("artisan.plugins.nvim-tree")
+            require('artisan.plugins.nvim-tree')
         end,
     },
 
     -- Lualine
     -- Statusline plugin
     -- Repo:
-    ["nvim-lualine/lualine.nvim"] = {
-        after = { "nvim-web-devicons" },
+    {
+        'nvim-lualine/lualine.nvim',
         config = function()
-            require("artisan.plugins.lualine")
+            require('artisan.plugins.lualine')
         end,
     },
 
     -- Bufferline
     -- Tabline plugin
     -- Repo:
-    ["akinsho/nvim-bufferline.lua"] = {
-        after = { "nvim-web-devicons" },
+    {
+        'akinsho/bufferline.nvim',
+        branch = 'main',
         config = function()
-            require("artisan.plugins.bufferline")
+            require('artisan.plugins.bufferline')
         end,
     },
 
     -- WhichKey
-    ["folke/which-key.nvim"] = {
-        event = "VimEnter",
+    {
+        'folke/which-key.nvim',
         config = function()
-            require("artisan.plugins.which-key")
+            require('artisan.plugins.which-key')
+        end,
+        event = 'VeryLazy',
+    },
+
+    {
+        'goolord/alpha-nvim',
+        config = function()
+            require('artisan.plugins.alpha')
         end,
     },
 
-    ["goolord/alpha-nvim"] = {
-        requires = { 'kyazdani42/nvim-web-devicons' },
+    {
+        'akinsho/toggleterm.nvim',
+        event = 'VeryLazy',
+        branch = 'main',
         config = function()
-            require("artisan.plugins.alpha")
-        end,
-    },
-
-    ["akinsho/toggleterm.nvim"] = {
-        tag = "v2.*",
-        config = function()
-            require("artisan.plugins.toggleterm")
+            require('artisan.plugins.toggleterm')
         end,
     },
 
@@ -133,28 +142,30 @@ local plugins = {
     -- TreeSitter
     -- Nvim Treesitter configurations and abstraction layer (+advanced highlighting)
     -- Repo: https://github.com/nvim-treesitter/nvim-treesitter
-    ["nvim-treesitter/nvim-treesitter"] = {
-        run = ":TSUpdate",
+    {
+        'nvim-treesitter/nvim-treesitter',
         config = function()
-            require("artisan.plugins.treesitter")
+            require('artisan.plugins.treesitter')
         end,
     },
 
     -- IndentBlankline
     -- Indentation guides to lines
     -- Repo: https://github.com/lukas-reineke/indent-blankline.nvim
-    ["lukas-reineke/indent-blankline.nvim"] = {
-        event = "BufEnter",
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        event = 'BufEnter',
         config = function()
-            require("artisan.plugins.indent-blankline")
+            require('artisan.plugins.indent-blankline')
         end,
     },
 
     -- Colorizer
     -- Color Highlighter
     -- Repo: https://github.com/norcalli/nvim-colorizer.lua
-    ["norcalli/nvim-colorizer.lua"] = {
-        event = "BufEnter",
+    {
+        'norcalli/nvim-colorizer.lua',
+        event = 'BufEnter',
         config = function()
             require("artisan.plugins.colorizer")
         end,
@@ -163,28 +174,31 @@ local plugins = {
     -- TodoComments
     -- Highlight todo comments
     -- Repo: https://github.com/folke/todo-comments.nvim
-    ["folke/todo-comments.nvim"] = {
-        event = "BufEnter",
+    {
+        'folke/todo-comments.nvim',
+        event = 'BufEnter',
         config = function()
-            require("artisan.plugins.todo-comments")
+            require('artisan.plugins.todo-comments')
         end,
     },
 
     -- Comment
     -- Smart and powerful commenting plugin
     -- Repo: https://github.com/numToStr/Comment.nvim
-    ["numToStr/Comment.nvim"] = {
-        event = "BufEnter",
+    {
+        'numToStr/Comment.nvim',
+        event = 'BufRead',
         config = function()
-            require("artisan.plugins.comment")
+            require('artisan.plugins.comment')
         end,
     },
 
     -- Twilight
     -- Dims inactive portions of the code
     -- Repo: https://github.com/folke/twilight.nvim
-    ["folke/twilight.nvim"] = {
-        event = "BufEnter",
+    {
+        'folke/twilight.nvim',
+        event = 'BufEnter',
         config = function()
             require("artisan.plugins.twilight")
         end,
@@ -193,24 +207,24 @@ local plugins = {
     -- Fugitive
     -- Git commands
     -- Repo: https://github.com/tpope/vim-fugitive
-    ["tpope/vim-fugitive"] = {
-        cmd = "Git",
-    },
+    { 'tpope/vim-fugitive', cmd = 'Git' },
 
     -- Git Signs
     -- Git diff signs on the buffer
     -- Repo: https://github.com/lewis6991/gitsigns.nvim
-    ["lewis6991/gitsigns.nvim"] = {
-        event = "BufRead",
+    {
+        'lewis6991/gitsigns.nvim',
+        event = 'BufRead',
         config = function()
-            require("artisan.plugins.gitsigns")
+            require('artisan.plugins.gitsigns')
         end,
     },
 
-    ["windwp/nvim-autopairs"] = {
-        event = "InsertEnter",
+    {
+        'windwp/nvim-autopairs',
+        event = 'InsertEnter',
         config = function()
-            require("artisan.plugins.nvim-autopairs")
+            require('artisan.plugins.nvim-autopairs')
         end,
     },
 
@@ -221,31 +235,38 @@ local plugins = {
     -- Telescope Fzf Native Extension
     -- C port of the fzf
     -- Repo: https://github.com/nvim-telescope/telescope-fzf-native.nvim
-    ["nvim-telescope/telescope-fzf-native.nvim"] = {
-        run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        lazy = true,
     },
 
     -- Telescope
-    ["nvim-telescope/telescope.nvim"] = {
-        after = { "telescope-fzf-native.nvim" },
-        requires = { "nvim-lua/plenary.nvim" },
+    {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        dependencies = { 'telescope-fzf-native.nvim', 'nvim-lua/plenary.nvim' },
+        lazy = true,
+        cmd = 'Telescope',
         config = function()
-            require("artisan.plugins.telescope")
+            require('artisan.plugins.telescope')
         end,
     },
 
     -- Telescope Symbols Extension
     -- Picking symbols
     -- Repo: https://github.com/nvim-telescope/telescope-symbols.nvim
-    ["nvim-telescope/telescope-symbols.nvim"] = {
-        requires = { "nvim-telescope/telescope.nvim" },
+    {
+        'nvim-telescope/telescope-symbols.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
     },
 
     -- Telescope Env Extension
     -- Watch environment variables
     -- Repo: https://github.com/LinArcX/telescope-env.nvim
-    ["LinArcX/telescope-env.nvim"] = {
-        requires = { "nvim-telescope/telescope.nvim" },
+    {
+        'LinArcX/telescope-env.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
             require("telescope").load_extension("env")
         end,
@@ -253,8 +274,9 @@ local plugins = {
 
     -- Telescope Conventional Commits Extension
     -- Repo: https://github.com/olacin/telescope-cc.nvim
-    ["olacin/telescope-cc.nvim"] = {
-        requires = { "nvim-telescope/telescope.nvim" },
+    {
+        'olacin/telescope-cc.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
             require("telescope").load_extension("conventional_commits")
         end,
@@ -263,22 +285,25 @@ local plugins = {
     -- Telescope Ports Extension
     -- Watch open ports
     -- INFO: Make sure its install on Linux only
-    ["LinArcX/telescope-ports.nvim"] = {
-        requires = { "nvim-telescope/telescope.nvim" },
+    {
+        'LinArcX/telescope-ports.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
             require("telescope").load_extension("ports")
         end,
     },
 
-    ["nvim-telescope/telescope-frecency.nvim"] = {
-        requires = { "tami5/sqlite.lua", "nvim-telescope/telescope.nvim" },
+    {
+        'nvim-telescope/telescope-frecency.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim', 'tami5/sqlite.lua' },
         config = function()
             require("telescope").load_extension("frecency")
         end,
     },
 
-    ["nvim-telescope/telescope-project.nvim"] = {
-        requires = { "nvim-telescope/telescope.nvim" },
+    {
+        'nvim-telescope/telescope-project.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
             require("telescope").load_extension("project")
         end,
@@ -290,15 +315,19 @@ local plugins = {
 
     -- Friendly snippets
     -- Repo:
-    ["rafamadriz/friendly-snippets"] = {
-        module = "cmp_nvim_lsp",
-        event = "InsertEnter",
-    },
+    { 'rafamadriz/friendly-snippets', lazy = true },
 
     -- Autocompletion plugin
     -- Repo:
-    ["hrsh7th/nvim-cmp"] = {
-        after = "friendly-snippets",
+    {
+        'hrsh7th/nvim-cmp',
+        event = { 'InsertEnter', 'CmdlineEnter' },
+        dependencies = {
+            'cmp-nvim-lsp',
+            'cmp_luasnip',
+            'cmp-buffer',
+            'cmp-path',
+        },
         config = function()
             require("artisan.plugins.cmp")
         end,
@@ -307,35 +336,28 @@ local plugins = {
     -- Luasnip
     -- Snippets plugin
     -- Repo:
-    ["L3MON4D3/LuaSnip"] = {
-        wants = "friendly-snippets",
-        after = "nvim-cmp",
+    {
+        'L3MON4D3/LuaSnip',
+        event = 'InsertEnter',
+        dependencies = { 'friendly-snippets' },
         config = function()
-            require("artisan.plugins.snippets")
+            require('artisan.plugins.snippets')
         end,
     },
 
     -- Snippets source for nvim-cmp
     -- Repo:
-    ["saadparwaiz1/cmp_luasnip"] = {
-        after = "LuaSnip",
-    },
+    { 'saadparwaiz1/cmp_luasnip', lazy = true },
 
     -- LSP source for nvim-cmp
     -- Repo:
-    ["hrsh7th/cmp-nvim-lsp"] = {
-        after = "cmp_luasnip",
-    },
+    { 'hrsh7th/cmp-nvim-lsp', lazy = true },
 
     --
-    ["hrsh7th/cmp-buffer"] = {
-        after = "cmp-nvim-lsp",
-    },
+    { 'hrsh7th/cmp-buffer', lazy = true },
 
     --
-    ["hrsh7th/cmp-path"] = {
-        after = "cmp-buffer",
-    },
+    { 'hrsh7th/cmp-path', lazy = true },
 
     -- }}}
 
@@ -343,33 +365,36 @@ local plugins = {
 
     -- LSPConfig
     -- Repo:
-    ["neovim/nvim-lspconfig"] = {
-        event = "BufEnter",
+    {
+        'neovim/nvim-lspconfig',
+        event = 'BufEnter',
         config = function()
             require("artisan.plugins.lsp")
         end,
     },
 
+
     -- LSP Signature
     -- LSP signature hint
     -- Repo: https://github.com/ray-x/lsp_signature.nvim
-    ["ray-x/lsp_signature.nvim"] = {
-        after = "nvim-lspconfig",
+    {
+        'ray-x/lsp_signature.nvim',
         config = function()
             require("lsp_signature").setup()
         end,
     },
 
-    ["scalameta/nvim-metals"] = {
-        requires = { "nvim-lua/plenary.nvim" },
-        after = { "cmp-nvim-lsp" },
+    {
+        'scalameta/nvim-metals',
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             require("artisan.plugins.nvim-metals")
         end,
     },
 
-    ["jose-elias-alvarez/null-ls.nvim"] = {
-        requires = { "nvim-lua/plenary.nvim" },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        lazy = true,
         config = function()
             require("artisan.plugins.null-ls")
         end,
@@ -379,17 +404,17 @@ local plugins = {
 
     -- Debug Adapter Protocol {{{
 
-    ["mfussenegger/nvim-dap"] = {
-        event = "BufRead",
+    {
+        'mfussenegger/nvim-dap',
         config = function()
-            require("artisan.plugins.dap")
+            require('artisan.plugins.dap')
         end,
     },
 
-    ["rcarriga/nvim-dap-ui"] = {
-        after = "nvim-dap",
+    {
+        'rcarriga/nvim-dap-ui',
         config = function()
-            require("artisan.plugins.dapui")
+            require('artisan.plugins.dapui')
         end,
     },
 
@@ -397,12 +422,13 @@ local plugins = {
 
     -- Testing, Linting {{{
 
-    ["nvim-neotest/neotest"] = {
-        requires = {
+    {
+        'nvim-neotest/neotest',
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
-            "olimorris/neotest-phpunit"
+            "olimorris/neotest-phpunit",
         },
         config = function()
             require("artisan.plugins.neotest")
@@ -413,9 +439,10 @@ local plugins = {
 
     -- Database {{{
 
-    ["tpope/vim-dadbod"] = {},
+    { 'tpope/vim-dadbod' },
 
-    ["kristijanhusak/vim-dadbod-ui"] = {
+    {
+        'kristijanhusak/vim-dadbod-ui',
         config = function()
             vim.g.db_ui_env_variable_url = 'DATABASE_URL'
             vim.g.db_ui_env_variable_name = 'DATABASE_NAME'
@@ -426,8 +453,9 @@ local plugins = {
 
     -- Tools {{{
 
-    ["NTBBloodbath/rest.nvim"] = {
-        requires = { "nvim-lua/plenary.nvim" },
+    {
+        'NTBBloodbath/rest.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             require("artisan.plugins.rest")
         end,
@@ -439,7 +467,9 @@ local plugins = {
 
     -- Tokyonight Theme
     -- Repo:
-    ["folke/tokyonight.nvim"] = {
+    {
+        'folke/tokyonight.nvim',
+        lazy = false,
         config = function()
             require("artisan.theme")
         end,
@@ -448,8 +478,8 @@ local plugins = {
     -- Nvim Scrollbar
     -- Extensible Neovim Scrollbar
     -- Repo: https://github.com/petertriho/nvim-scrollbar
-    ["petertriho/nvim-scrollbar"] = {
-        after = { "tokyonight.nvim" },
+    {
+        'petertriho/nvim-scrollbar',
         config = function()
             require("artisan.plugins.scrollbar")
         end,
@@ -458,7 +488,8 @@ local plugins = {
     -- NeoScroll
     -- Smooth scrolling
     -- Repo: https://github.com/karb94/neoscroll.nvim
-    ["karb94/neoscroll.nvim"] = {
+    {
+        'karb94/neoscroll.nvim',
         event = "BufRead",
         config = function()
             require("neoscroll").setup()
@@ -469,32 +500,32 @@ local plugins = {
 
 }
 
-local plugins_copy = vim.deepcopy(plugins)
-local plugins_table = {}
+opt.runtimepath:remove(fn.stdpath('data') .. "site/pack/lazy/opt/*")
+local configured = xpcall(function()
+    lazy.setup(plugins, {
+        install = {
+            missing = true,
+            colorscheme = { 'tokyonight' },
+        },
+        ui = {
+            border = 'rounded',
+        },
+        root = fn.stdpath("data") .. '/site/pack/lazy/opt',
+        git = {
+            timeout = 120,
+        },
+        lockfile = fn.stdpath('config') .. '/lazy-lock.json',
+        performance = {
+            rtp = {
+              reset = false,
+            },
+        },
+        readme = {
+            root = fn.stdpath('data') .. '/lazy/readme',
+        },
+    })
+end, debug.traceback)
 
-for key, _ in pairs(plugins_copy) do
-    plugins_copy[key][1] = key
-    plugins_table[#plugins_table + 1] = plugins_copy[key]
+if not configured then
+    print(('Problems detected while loading plugins\n\n%s'):format(debug.traceback()))
 end
-
-packer.init({
-    auto_clean = true,
-    compile_on_sync = true,
-    git = { clone_timeout = 6000 },
-    display = {
-        working_sym = "ﲊ",
-        error_sym = "✗ ",
-        done_sym = " ",
-        removed_sym = " ",
-        moved_sym = "",
-        open_fn = function()
-            return require("packer.util").float { border = "single" }
-        end,
-    },
-})
-
-packer.startup(function(use)
-    for _, plugin in pairs(plugins_table) do
-        use(plugin)
-    end
-end)

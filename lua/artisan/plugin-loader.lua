@@ -1,19 +1,16 @@
-local fn = vim.fn
+local fn, opt = vim.fn, vim.opt
 
 local install = function(path)
-    vim.notify("Installing packer...")
-    fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", path }
-
-    vim.cmd "packadd packer.nvim"
-    require("artisan.plugins")
-    vim.cmd "PackerSync"
+    vim.notify("Installing lazy.nvim...")
+    fn.system { "git", "clone", "--filter=blob:none", "--single-branch", "https://github.com/folke/lazy.nvim.git", path }
 end
 
-local path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local path = fn.stdpath("data") .. "/site/pack/lazy/opt/lazy.nvim"
 
 if fn.empty(fn.glob(path)) ~= 0 then
     install(path)
 end
 
-vim.cmd "packadd packer.nvim"
+opt.runtimepath:append(path)
+
 require("artisan.plugins")

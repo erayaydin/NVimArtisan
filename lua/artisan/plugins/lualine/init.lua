@@ -6,7 +6,7 @@ end
 
 lualine.setup({
     options = {
-        theme = "auto",
+        theme = "tokyonight",
         disabled_filetypes = {
             "NvimTree",
             "vista_kind",
