@@ -1,6 +1,7 @@
 local M = {}
 
 local builtins = require('artisan.utils.builtins')
+local plugin_loader = require('artisan.plugin-loader')
 
 function M:run()
     -- Set options
@@ -10,11 +11,14 @@ function M:run()
     builtins.disable_plugins()
     builtins.disable_providers()
 
+    -- Initialize plugin loader
+    plugin_loader.init()
+
     -- Set mappings
     require("artisan.mappings")
 
-    -- Install plugin loader and plugins
-    require("artisan.plugin-loader")
+    -- Load plugins
+    plugin_loader.load(require('artisan.plugins'))
 
     -- Show notification
     vim.notify_once("NVimArtisan v0.3.0 loaded!", "info", {
