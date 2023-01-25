@@ -7,9 +7,6 @@ require("artisan.options")
 -- Disable builtin providers and plugins
 require("artisan.builtin")
 
--- Read ShaDa file
-require("artisan.shada")
-
 -- Set mappings
 require("artisan.mappings")
 
