@@ -19,12 +19,6 @@ function M:run()
 
     -- Load plugins
     plugin_loader.load(require('artisan.plugins'))
-
-    -- Show notification
-    vim.notify_once("NVimArtisan v0.3.0 loaded!", "info", {
-        title = "NVimArtisan",
-        timeout = 500,
-    })
 end
 
 return M
