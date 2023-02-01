@@ -118,7 +118,7 @@ local mappings = {
     },
     Terminal = {
         t = {
-            ["<esc>"] = { [[<C-\><C-n>]], "Escape terminal" },
+            ["<leader><esc>"] = { [[<C-\><C-n>]], "Escape terminal" },
 
             ["<C-h>"] = { "<C-\\><C-n><C-w>h", "Jump to left" },
             ["<C-j>"] = { "<C-\\><C-n><C-w>j", "Jump to down" },
