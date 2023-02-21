@@ -4,27 +4,27 @@ local mappings = {
     General = {
         n = {
             -- Turn off highlight
-            ["<ESC>"] = { "<cmd>noh<CR>", " no highlight" },
+            ["<ESC>"] = { "<CMD>noh<CR>", " no highlight" },
 
             -- Switch splits
-            ["<C-h>"] = { "<C-w>h", "switch to left" },
-            ["<C-l>"] = { "<C-w>l", "switch to right" },
-            ["<C-k>"] = { "<C-w>k", "switch to up" },
-            ["<C-j>"] = { "<C-w>j", "switch to down" },
+            ["<C-H>"] = { "<C-W>h", "switch to left" },
+            ["<C-L>"] = { "<C-W>l", "switch to right" },
+            ["<C-K>"] = { "<C-W>k", "switch to up" },
+            ["<C-J>"] = { "<C-W>j", "switch to down" },
 
             -- Resize
-            ["<A-h>"] = { "<CMD>vertical resize +2<CR>", "increase vertical size" },
-            ["<A-l>"] = { "<CMD>vertical resize -2<CR>", "decrease vertical size" },
-            ["<A-k>"] = { "<CMD>:resize -2<CR>", "decrease size"},
-            ["<A-j>"] = { "<CMD>:resize +2<CR>", "increase size" },
+            ["<A-H>"] = { "<CMD>vertical resize +2<CR>", "increase vertical size" },
+            ["<A-L>"] = { "<CMD>vertical resize -2<CR>", "decrease vertical size" },
+            ["<A-K>"] = { "<CMD>:resize -2<CR>", "decrease size"},
+            ["<A-J>"] = { "<CMD>:resize +2<CR>", "increase size" },
 
             -- Save file
-            ["<C-s>"] = { "<cmd>w<CR>", "save file" },
-            ["<C-c>"] = { "<cmd>%y+<CR>", "copy file content" },
+            ["<C-S>"] = { "<CMD>w<CR>", "save file" },
+            ["<C-C>"] = { "<CMD>%y+<CR>", "copy file content" },
 
             -- Line Number
-            ["<leader>ln"] = { "<cmd>set nu!<CR>", "toggle line numbers" },
-            ["<leader>lr"] = { "<cmd>set rnu!<CR>", "toggle relative number" },
+            ["<leader>ln"] = { "<CMD>set nu!<CR>", "toggle line numbers" },
+            ["<leader>lr"] = { "<CMD>set rnu!<CR>", "toggle relative number" },
         },
         v = {
             -- Do not copy the replaced text after pasting
@@ -48,82 +48,82 @@ local mappings = {
             ["sv"] = { ":vnew<CR>", "New buffer with split vertical" },
             ["sh"] = { ":new<CR>", "New buffer with split horizontal" },
 
-            ["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "Next buffer in the bufferline" },
-            ["<A-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "Previous buffer in the bufferline" },
+            ["<Tab>"] = { "<CMD>BufferLineCycleNext<CR>", "Next buffer in the bufferline" },
+            ["<A-Tab>"] = { "<CMD>BufferLineCyclePrev<CR>", "Previous buffer in the bufferline" },
 
             ["<leader>q"] = { "<cmd>Bdelete<CR>", "Safe buffer delete" },
         },
     },
     NvimTree = {
         n = {
-            ["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "toggle nvimtree" },
-            ["<leader>nr"] = { "<cmd>NvimTreeRefresh<CR>", "refresh nvimtree" },
-            ["<leader>nf"] = { "<cmd>NvimTreeFocus<CR>", "focus nvimtree" },
+            ["<C-n>"] = { "<CMD>NvimTreeToggle<CR>", "toggle nvimtree" },
+            ["<leader>nr"] = { "<CMD>NvimTreeRefresh<CR>", "refresh nvimtree" },
+            ["<leader>nf"] = { "<CMD>NvimTreeFocus<CR>", "focus nvimtree" },
         },
     },
     LSP = {
         n = {
-            ["<leader>e"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open diagnostic float" },
-            ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "goto previous diagnostic" },
-            ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "goto next diagnostic" },
-            ["<leader>q"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "show diagnostic locations" },
-            ["<leader>aa"] = { "<cmd>lua vim.diagnostic.setqflist()<CR>", "show all diagnostics in workspace" },
-            ["<leader>ae"] = { "<cmd>lua vim.diagnostic.setqflist({severity = \"E\"})<CR>",
+            ["<leader>e"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Open diagnostic float" },
+            ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "goto previous diagnostic" },
+            ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "goto next diagnostic" },
+            ["<leader>q"] = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "show diagnostic locations" },
+            ["<leader>aa"] = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "show all diagnostics in workspace" },
+            ["<leader>ae"] = { "<CMD>lua vim.diagnostic.setqflist({severity = \"E\"})<CR>",
                 "show error diagnostics in workspace" },
-            ["<leader>aw"] = { "<cmd>lua vim.diagnostic.setqflist({severity = \"W\"})<CR>",
+            ["<leader>aw"] = { "<CMD>lua vim.diagnostic.setqflist({severity = \"W\"})<CR>",
                 "show warn diagnostics in workspace" },
 
-            ["gD"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "go to definition" },
-            ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
-            ["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "show all implementations" },
-            ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "show all references" },
-            ["gds"] = { "<cmd>lua vim.lsp.buf.document_symbol()<CR>", "show all symbols in the buffer" },
-            ["gws"] = { "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", "show all symbols in the workspace" },
-            ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show description of symbol" },
+            ["gD"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "go to definition" },
+            ["gs"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
+            ["gI"] = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "show all implementations" },
+            ["gr"] = { "<CMD>lua vim.lsp.buf.references()<CR>", "show all references" },
+            ["gds"] = { "<CMD>lua vim.lsp.buf.document_symbol()<CR>", "show all symbols in the buffer" },
+            ["gws"] = { "<CMD>lua vim.lsp.buf.workspace_symbol()<CR>", "show all symbols in the workspace" },
+            ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "show description of symbol" },
 
-            ["<leader>rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "rename symbol" },
-            ["<leader>cf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "format buffer" },
-            ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "show code actions" },
-            ["<leader>cl"] = { "<cmd>lua vim.lsp.codelens.run()<CR>", "run code lens" },
+            ["<leader>rn"] = { "<CMD>lua vim.lsp.buf.rename()<CR>", "rename symbol" },
+            ["<leader>cf"] = { "<CMD>lua vim.lsp.buf.formatting()<CR>", "format buffer" },
+            ["<leader>ca"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "show code actions" },
+            ["<leader>cl"] = { "<CMD>lua vim.lsp.codelens.run()<CR>", "run code lens" },
         },
     },
     DAP = {
         n = {
-            ["<leader>dc"] = { "<cmd>lua require(\"dap\").continue()<CR>", "Start/continue to debug" },
-            ["<leader>dr"] = { "<cmd>lua require(\"dap\").repl.toggle({height = 10})<CR>", "Toggle REPL" },
-            ["<leader>dh"] = { "<cmd>lua require(\"dap.ui.widgets\").hover()<CR>", "" },
-            ["<leader>dt"] = { "<cmd>lua require(\"dap\").toggle_breakpoint()<CR>", "Toggle breakpoint" },
-            ["<leader>dso"] = { "<cmd>lua require(\"dap\").step_over()<CR>", "Step over to point" },
-            ["<leader>dsi"] = { "<cmd>lua require(\"dap\").step_into()<CR>", "Step into the point" },
-            ["<leader>dl"] = { "<cmd>lua require(\"dap\").run_last()<CR>", "Run last" },
-            ["<leader>du"] = { "<cmd>lua require(\"dapui\").toggle()<CR>", "Toggle Dap UI" },
+            ["<leader>dc"] = { "<CMD>lua require(\"dap\").continue()<CR>", "Start/continue to debug" },
+            ["<leader>dr"] = { "<CMD>lua require(\"dap\").repl.toggle({height = 10})<CR>", "Toggle REPL" },
+            ["<leader>dh"] = { "<CMD>lua require(\"dap.ui.widgets\").hover()<CR>", "" },
+            ["<leader>dt"] = { "<CMD>lua require(\"dap\").toggle_breakpoint()<CR>", "Toggle breakpoint" },
+            ["<leader>dso"] = { "<CMD>lua require(\"dap\").step_over()<CR>", "Step over to point" },
+            ["<leader>dsi"] = { "<CMD>lua require(\"dap\").step_into()<CR>", "Step into the point" },
+            ["<leader>dl"] = { "<CMD>lua require(\"dap\").run_last()<CR>", "Run last" },
+            ["<leader>du"] = { "<CMD>lua require(\"dapui\").toggle()<CR>", "Toggle Dap UI" },
         },
     },
     Telescope = {
         n = {
-            ["<leader>ff"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
-            ["<leader>fg"] = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
-            ["<leader>fb"] = { "<cmd>Telescope buffers<CR>", "Buffers" },
-            ["<leader>fh"] = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
+            ["<leader>ff"] = { "<CMD>Telescope find_files<CR>", "Find Files" },
+            ["<leader>fg"] = { "<CMD>Telescope live_grep<CR>", "Live Grep" },
+            ["<leader>fb"] = { "<CMD>Telescope buffers<CR>", "Buffers" },
+            ["<leader>fh"] = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
             ["<leader>fn"] = {
                 function()
                     require("telescope").extensions.notify.notify()
                 end, "Notifications"
             },
-            ["<leader>fe"] = { "<cmd>Telescope env<CR>", "Environment Variables" },
-            ["<leader>fr"] = { "<cmd>Telescope frecency<CR>", "Frecency" },
-            ["<leader>fo"] = { "<cmd>Telescope oldfiles<CR>", "Recently Files" },
-            ["<leader>fp"] = { "<cmd>Telescope project<CR>", "Projects" },
+            ["<leader>fe"] = { "<CMD>Telescope env<CR>", "Environment Variables" },
+            ["<leader>fr"] = { "<CMD>Telescope frecency<CR>", "Frecency" },
+            ["<leader>fo"] = { "<CMD>Telescope oldfiles<CR>", "Recently Files" },
+            ["<leader>fp"] = { "<CMD>Telescope project<CR>", "Projects" },
         },
     },
     Terminal = {
         t = {
-            ["<leader><esc>"] = { [[<C-\><C-n>]], "Escape terminal" },
+            ["<leader><esc>"] = { [[<C-\><C-N>]], "Escape terminal" },
 
-            ["<C-h>"] = { "<C-\\><C-n><C-w>h", "Jump to left" },
-            ["<C-j>"] = { "<C-\\><C-n><C-w>j", "Jump to down" },
-            ["<C-k>"] = { "<C-\\><C-n><C-w>k", "Jump to up" },
-            ["<C-l>"] = { "<C-\\><C-n><C-w>l", "Jump to right" },
+            ["<C-H>"] = { "<C-\\><C-N><C-W>h", "Jump to left" },
+            ["<C-J>"] = { "<C-\\><C-N><C-W>j", "Jump to down" },
+            ["<C-K>"] = { "<C-\\><C-n><C-w>k", "Jump to up" },
+            ["<C-L>"] = { "<C-\\><C-n><C-w>l", "Jump to right" },
         },
     },
     Rest = {
