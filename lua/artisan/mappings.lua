@@ -48,10 +48,43 @@ local mappings = {
             ["sv"] = { ":vnew<CR>", "New buffer with split vertical" },
             ["sh"] = { ":new<CR>", "New buffer with split horizontal" },
 
-            ["<Tab>"] = { "<CMD>BufferLineCycleNext<CR>", "Next buffer in the bufferline" },
-            ["<A-Tab>"] = { "<CMD>BufferLineCyclePrev<CR>", "Previous buffer in the bufferline" },
+            ["<Tab>"] = { "<CMD>BufferNext<CR>", "Next buffer in the bufferline" },
+            ["<A-Tab>"] = { "<CMD>BufferPrev<CR>", "Previous buffer in the bufferline" },
 
-            ["<leader>q"] = { "<cmd>Bdelete<CR>", "Safe buffer delete" },
+            ["<leader><Tab>"] = { "<CMD>BufferMoveNext<CR>", "Move buffer to prev" },
+            ["<leader><A-Tab>"] = { "<CMD>BufferMovePrevious<CR>", "Move buffer to prev" },
+
+            ["<leader>b*"] = { "<CMD>BufferPin<CR>", "Pin buffer" },
+
+            ["<leader>bp"] = { "<CMD>BufferPick<CR>", "Pick buffer by keyword" },
+            ["<leader>bd"] = { "<CMD>BufferPickDelete<CR>", "Delete buffer by keyword" },
+
+            ["<leader>bon"] = { "<CMD>BufferOrderByBufferNumber<CR>", "Sort buffers by buffer number" },
+            ["<leader>bod"] = { "<CMD>BufferOrderByDirectory<CR>", "Sort buffers by directory" },
+            ["<leader>bol"] = { "<CMD>BufferOrderByLanguage<CR>", "Sort buffers by languages" },
+            ["<leader>bow"] = { "<CMD>BufferOrderByWindowNumber<CR>", "Sort buffers by window number" },
+
+            ["<leader>bw"] = { "<CMD>BufferWipeout<CR>", "Wipeout all buffers" },
+
+            ["<leader>bcc"] = { "<CMD>BufferCloseAllButCurrent<CR>", "Close all buffers but current" },
+            ["<leader>bcv"] = { "<CMD>BufferCloseAllButVisible<CR>", "Close all buffers but visible" },
+            ["<leader>bcp"] = { "<CMD>BufferCloseAllButPinned<CR>", "Close all buffers but pinned" },
+            ["<leader>bc*"] = { "<CMD>BufferCloseAllButCurrentOrPinned<CR>", "Close all buffers but current or pinned" },
+            ["<leader>bch"] = { "<CMD>BufferCloseBuffersLeft<CR>", "Close all left buffers" },
+            ["<leader>bcl"] = { "<CMD>BufferCloseBuffersRight<CR>", "Close all right buffers" },
+
+            ["<leader>b1"] = { "<CMD>BufferGoto 1<CR>", "Go to buffer 1" },
+            ["<leader>b2"] = { "<CMD>BufferGoto 2<CR>", "Go to buffer 2" },
+            ["<leader>b3"] = { "<CMD>BufferGoto 3<CR>", "Go to buffer 3" },
+            ["<leader>b4"] = { "<CMD>BufferGoto 4<CR>", "Go to buffer 4" },
+            ["<leader>b5"] = { "<CMD>BufferGoto 5<CR>", "Go to buffer 5" },
+            ["<leader>b6"] = { "<CMD>BufferGoto 6<CR>", "Go to buffer 6" },
+            ["<leader>b7"] = { "<CMD>BufferGoto 7<CR>", "Go to buffer 7" },
+            ["<leader>b8"] = { "<CMD>BufferGoto 8<CR>", "Go to buffer 8" },
+            ["<leader>b9"] = { "<CMD>BufferGoto 9<CR>", "Go to buffer 9" },
+            ["<leader>b0"] = { "<CMD>BufferLast<CR>", "Go to last buffer" },
+
+            ["<leader>q"] = { "<cmd>BufferClose<CR>", "Buffer delete" },
         },
     },
     NvimTree = {
