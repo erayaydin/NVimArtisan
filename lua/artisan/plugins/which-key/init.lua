@@ -3,8 +3,6 @@ if not installed then
     return
 end
 
-require("artisan.mappings")
-
 wk.setup({
     icons = {
         breadcrumb = "»",
