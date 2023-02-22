@@ -91,8 +91,8 @@ return {
     -- Tabline plugin
     -- Repo:
     {
-        'akinsho/bufferline.nvim',
-        branch = 'main',
+        'romgrk/barbar.nvim',
+        dependencies = 'kyazdani42/nvim-web-devicons',
         config = function()
             require('artisan.plugins.bufferline')
         end,
@@ -156,17 +156,6 @@ return {
         event = 'BufEnter',
         config = function()
             require("artisan.plugins.colorizer")
-        end,
-    },
-
-    -- TodoComments
-    -- Highlight todo comments
-    -- Repo: https://github.com/folke/todo-comments.nvim
-    {
-        'folke/todo-comments.nvim',
-        event = 'BufEnter',
-        config = function()
-            require('artisan.plugins.todo-comments')
         end,
     },
 
@@ -473,8 +462,9 @@ return {
     {
         'folke/tokyonight.nvim',
         lazy = false,
+        priority = 1000,
         config = function()
-            require("artisan.theme")
+          vim.cmd([[colorscheme tokyonight]])
         end,
     },
 
