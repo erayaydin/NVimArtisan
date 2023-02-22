@@ -6,20 +6,6 @@ local path = require('artisan.utils.path')
 
 local lazy_pack_path = path.join(path.data(), 'site', 'pack', 'lazy', 'opt')
 
-local function fix_lazy_cache()
-    local cache = require("lazy.core.cache")
-    ---@diagnostic disable-next-line: redundant-parameter
-    cache.setup({
-        performance = {
-            cache = {
-                enabled = true,
-                path = path.join(path.cache(), "lazy", "cache"),
-            },
-        },
-    })
-    cache.setup = function() end
-end
-
 function plugin_loader.init(opts)
     opts = opts or {}
 
@@ -33,9 +19,6 @@ function plugin_loader.init(opts)
 
     -- Add lazy.nvim to the runtime path
     opt.runtimepath:append(install_path)
-
-    -- Fix lazy cache directory issue
-    fix_lazy_cache()
 end
 
 function plugin_loader.install(install_path)
