@@ -14,11 +14,11 @@ function M:run()
     -- Initialize plugin loader
     plugin_loader.init()
 
-    -- Set mappings
-    require("artisan.mappings")
-
     -- Load plugins
     plugin_loader.load(require('artisan.plugins'))
+
+    -- Set mappings
+    require("artisan.mappings")
 end
 
 return M
