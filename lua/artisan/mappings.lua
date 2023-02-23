@@ -51,7 +51,7 @@ local mappings = {
             ["<Tab>"] = { "<CMD>BufferNext<CR>", "Next buffer in the bufferline" },
             ["<A-Tab>"] = { "<CMD>BufferPrev<CR>", "Previous buffer in the bufferline" },
 
-            ["<leader><Tab>"] = { "<CMD>BufferMoveNext<CR>", "Move buffer to prev" },
+            ["<leader><Tab>"] = { "<CMD>BufferMoveNext<CR>", "Move buffer to next" },
             ["<leader><A-Tab>"] = { "<CMD>BufferMovePrevious<CR>", "Move buffer to prev" },
 
             ["<leader>b*"] = { "<CMD>BufferPin<CR>", "Pin buffer" },
@@ -61,7 +61,7 @@ local mappings = {
 
             ["<leader>bon"] = { "<CMD>BufferOrderByBufferNumber<CR>", "Sort buffers by buffer number" },
             ["<leader>bod"] = { "<CMD>BufferOrderByDirectory<CR>", "Sort buffers by directory" },
-            ["<leader>bol"] = { "<CMD>BufferOrderByLanguage<CR>", "Sort buffers by languages" },
+            ["<leader>bol"] = { "<CMD>BufferOrderByLanguage<CR>", "Sort buffers by language" },
             ["<leader>bow"] = { "<CMD>BufferOrderByWindowNumber<CR>", "Sort buffers by window number" },
 
             ["<leader>bw"] = { "<CMD>BufferWipeout<CR>", "Wipeout all buffers" },
@@ -126,7 +126,7 @@ local mappings = {
             ["<leader>dr"] = { "<CMD>lua require(\"dap\").repl.toggle({height = 10})<CR>", "Toggle REPL" },
             ["<leader>dh"] = { "<CMD>lua require(\"dap.ui.widgets\").hover()<CR>", "" },
             ["<leader>dt"] = { "<CMD>lua require(\"dap\").toggle_breakpoint()<CR>", "Toggle breakpoint" },
-            ["<leader>dso"] = { "<CMD>lua require(\"dap\").step_over()<CR>", "Step over to point" },
+            ["<leader>dso"] = { "<CMD>lua require(\"dap\").step_over()<CR>", "Step over to the point" },
             ["<leader>dsi"] = { "<CMD>lua require(\"dap\").step_into()<CR>", "Step into the point" },
             ["<leader>dl"] = { "<CMD>lua require(\"dap\").run_last()<CR>", "Run last" },
             ["<leader>du"] = { "<CMD>lua require(\"dapui\").toggle()<CR>", "Toggle Dap UI" },
@@ -140,6 +140,7 @@ local mappings = {
             ["<leader>fh"] = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
             ["<leader>fn"] = {
                 function()
+                    ---@diagnostic disable-next-line: different-requires
                     require("telescope").extensions.notify.notify()
                 end, "Notifications"
             },
