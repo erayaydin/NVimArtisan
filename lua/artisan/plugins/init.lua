@@ -53,8 +53,6 @@ return {
         end,
     },
 
-    { 'famiu/bufdelete.nvim', cmd = { 'Bdelete', 'Bwipeout' } },
-
     -- }}}
 
     -- General {{{
@@ -79,7 +77,7 @@ return {
 
     -- Lualine
     -- Statusline plugin
-    -- Repo:
+    -- Repo: https://github.com/nvim-lualine/lualine.nvim
     {
         'nvim-lualine/lualine.nvim',
         config = function()
@@ -87,9 +85,9 @@ return {
         end,
     },
 
-    -- Bufferline
+    -- Barbar
     -- Tabline plugin
-    -- Repo:
+    -- Repo: https://github.com/romgrk/barbar.nvim
     {
         'romgrk/barbar.nvim',
         dependencies = 'kyazdani42/nvim-web-devicons',
