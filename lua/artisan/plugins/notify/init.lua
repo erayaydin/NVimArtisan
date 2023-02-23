@@ -6,4 +6,9 @@ end
 
 vim.notify = notify
 vim.notify_once = notify
-require("telescope").load_extension("notify")
+
+local telescope_installed, telescope = pcall(require, "telescope")
+
+if telescope_installed then
+    telescope.load_extension("notify")
+end
