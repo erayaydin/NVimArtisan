@@ -226,6 +226,7 @@ return {
         lazy = true,
         cmd = 'Telescope',
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require('artisan.plugins.telescope')
         end,
     },
@@ -245,6 +246,7 @@ return {
         'LinArcX/telescope-env.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require("telescope").load_extension("env")
         end,
     },
@@ -255,6 +257,7 @@ return {
         'olacin/telescope-cc.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require("telescope").load_extension("conventional_commits")
         end,
     },
@@ -266,6 +269,7 @@ return {
         'LinArcX/telescope-ports.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require("telescope").load_extension("ports")
         end,
     },
@@ -274,6 +278,7 @@ return {
         'nvim-telescope/telescope-frecency.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim', 'tami5/sqlite.lua' },
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require("telescope").load_extension("frecency")
         end,
     },
@@ -282,6 +287,7 @@ return {
         'nvim-telescope/telescope-project.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require("telescope").load_extension("project")
         end,
     },
@@ -386,7 +392,6 @@ return {
 
     {
         'jose-elias-alvarez/null-ls.nvim',
-        lazy = true,
         config = function()
             require("artisan.plugins.null-ls")
         end,
@@ -399,6 +404,7 @@ return {
     {
         'mfussenegger/nvim-dap',
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require('artisan.plugins.dap')
         end,
     },
