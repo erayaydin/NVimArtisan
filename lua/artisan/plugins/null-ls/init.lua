@@ -19,6 +19,11 @@ null_ls.setup({
 
         -- = Diagnostics =
 
+        -- Lua
+        null_ls.builtins.diagnostics.luacheck.with({
+            extra_args = { "--globals vim" },
+        }),
+
         -- PHP
         null_ls.builtins.diagnostics.phpcs.with({
             extra_args = { "--standard=PSR12" },
