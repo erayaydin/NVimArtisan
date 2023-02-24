@@ -395,6 +395,13 @@ return {
         end,
     },
 
+    {
+        'j-hui/fidget.nvim',
+        config = function()
+            require("artisan.plugins.fidget")
+        end,
+    },
+
     -- }}}
 
     -- Debug Adapter Protocol {{{
