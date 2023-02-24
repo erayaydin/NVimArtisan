@@ -47,3 +47,4 @@ end
 require("artisan.plugins.lsp.lua")(lspconfig, on_attach, capabilities)
 require("artisan.plugins.lsp.python")(lspconfig, on_attach, capabilities)
 require("artisan.plugins.lsp.php")(lspconfig, on_attach, capabilities)
+require("artisan.plugins.lsp.json")(lspconfig, on_attach, capabilities)

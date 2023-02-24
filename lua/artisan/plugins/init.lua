@@ -348,7 +348,7 @@ return {
     -- Repo:
     {
         'neovim/nvim-lspconfig',
-        dependencies = { 'mason-lspconfig.nvim' },
+        dependencies = { 'mason-lspconfig.nvim', 'b0o/schemastore.nvim' },
         config = function()
             require('artisan.plugins.lsp')
         end,
