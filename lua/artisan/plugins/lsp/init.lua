@@ -41,7 +41,7 @@ if cmp_installed then
 end
 
 local on_attach = function()
-    print("Attached!")
+    -- TODO: implement on_attach configuration
 end
 
 require("artisan.plugins.lsp.lua")(lspconfig, on_attach, capabilities)

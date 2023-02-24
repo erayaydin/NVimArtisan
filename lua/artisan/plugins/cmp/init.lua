@@ -1,7 +1,6 @@
 local installed, cmp = pcall(require, "cmp")
 
 if not installed then
-    print("cmp not installed!")
     return
 end
 

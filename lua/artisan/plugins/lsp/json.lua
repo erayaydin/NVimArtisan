@@ -1,9 +1,6 @@
 return function(lspconfig, before, capabilities)
-    print("jsonls registered!")
     local on_attach = function(client, bufnr)
-        print("Json attaching!")
         before(client, bufnr)
-        print("Json attached!")
     end
 
     lspconfig.jsonls.setup({
