@@ -130,10 +130,3 @@ mason_lspconfig.setup({
         exclude = {},
     },
 })
-
-mason_lspconfig.setup_handlers({
-    function(server)
-        local lspconfig = require('lspconfig')
-        lspconfig[server].setup({})
-    end,
-})
