@@ -402,6 +402,14 @@ return {
         end,
     },
 
+    {
+        'folke/trouble.nvim',
+        dependencies ='kyazdani42/nvim-web-devicons',
+        config = function()
+            require("artisan.plugins.trouble")
+        end,
+    },
+
     -- }}}
 
     -- Debug Adapter Protocol {{{

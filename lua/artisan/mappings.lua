@@ -120,6 +120,15 @@ local mappings = {
             ["<leader>cl"] = { "<CMD>lua vim.lsp.codelens.run()<CR>", "run code lens" },
         },
     },
+    Trouble = {
+        n = {
+            ["<leader>tt"] = { "<CMD>TroubleToggle<CR>", "Toggle Trouble window" },
+            ["<leader>tw"] = { "<CMD>TroubleToggle workspace_diagnostic<CR>", "Toggle Trouble window with workspace diagnostics" },
+            ["<leader>td"] = { "<CMD>TroubleToggle document_diagnostic<CR>", "Toggle Trouble window with document only diagnostics" },
+            ["<leader>tq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle Trouble window for quickfix items" },
+            ["<leader>tl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle Trouble window for location list" },
+        }
+    },
     DAP = {
         n = {
             ["<leader>dc"] = { "<CMD>lua require(\"dap\").continue()<CR>", "Start/continue to debug" },
