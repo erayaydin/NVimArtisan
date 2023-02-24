@@ -53,6 +53,14 @@ return {
         end,
     },
 
+    {
+        'ellisonleao/carbon-now.nvim',
+        cmd = "CarbonNow",
+        config = function()
+            require('artisan.plugins.carbon')
+        end,
+    },
+
     -- }}}
 
     -- General {{{

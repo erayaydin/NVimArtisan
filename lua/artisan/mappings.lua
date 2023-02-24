@@ -33,6 +33,9 @@ local mappings = {
             -- Unlimited indent when you visual selected text.
             ["<"] = { "<gv", "indent" },
             [">"] = { ">gv", "indent" },
+
+            -- Carbon now snippet generator
+            ["<leader>cn"] = { ":CarbonNow<CR>", "Generate carbon.now snippet" },
         },
         i = {},
         t = {},
