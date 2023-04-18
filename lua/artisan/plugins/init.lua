@@ -115,6 +115,7 @@ return {
 
     {
         'goolord/alpha-nvim',
+        lazy = false,
         config = function()
             require('artisan.plugins.alpha')
         end,
