@@ -72,7 +72,7 @@ local content = {
 
 local footer = {
     type = "text",
-    val = "v0.3.0",
+    val = "v0.4.0",
     opts = {
         position = "center",
         hl = "Number",
