@@ -5,7 +5,7 @@ if not installed then
 end
 
 treesitter.setup({
-    ensure_installed = { "lua", "http", "json", "python" },
+    ensure_installed = { "lua", "http", "json", "python", "cpp" },
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
