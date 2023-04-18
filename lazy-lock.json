@@ -19,7 +19,7 @@
   "lsp_signature.nvim": { "branch": "master", "commit": "72b0d4ece23338fe2d03fc7b6fd8c8bace6bb441" },
   "lualine.nvim": { "branch": "master", "commit": "84ffb80e452d95e2c46fa29a98ea11a240f7843e" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "7034065099c1665143091c7282b3b1b8f0b23783" },
-  "mason.nvim": { "branch": "main", "commit": "f657fb6a4ba72ddb15724a45747839eaa39d7acb" },
+  "mason.nvim": { "branch": "main", "commit": "d3188d44efb0caf006492641f7b9189ae86e47be" },
   "neoscroll.nvim": { "branch": "master", "commit": "d7601c26c8a183fa8994ed339e70c2d841253e93" },
   "neotest": { "branch": "master", "commit": "3dbac1ebda49861956e3c53f37a9d14de6dffb9b" },
   "neotest-phpunit": { "branch": "main", "commit": "bf414a6dd2ddbe69f6c7b96e345cfe28afd577db" },
