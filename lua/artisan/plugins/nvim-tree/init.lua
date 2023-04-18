@@ -94,6 +94,7 @@ nvim_tree.setup({
                     },
                     buftype = {
                         "terminal",
+                        "notify",
                     },
                 },
             },
