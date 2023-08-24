@@ -4,9 +4,6 @@ if not installed then
     return
 end
 
--- Aliases
-local callback = require("nvim-tree.config").nvim_tree_callback
-
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 
