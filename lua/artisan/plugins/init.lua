@@ -389,6 +389,14 @@ return {
         end,
     },
 
+    -- Toggle LSP Diagnostics
+    {
+        'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
+        config = function()
+            require('toggle_lsp_diagnostics').init()
+        end,
+    },
+
     {
         'scalameta/nvim-metals',
         dependencies = { 'nvim-lua/plenary.nvim' },

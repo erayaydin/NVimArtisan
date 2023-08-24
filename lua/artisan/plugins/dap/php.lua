@@ -12,6 +12,9 @@ dap.configurations.php = {
         type = "php",
         request = "launch",
         name = "Listen for XDebug",
-        port = 9000
+        port = 9003,
+        pathMappings = {
+            ["/var/www/html"] = "${workspaceFolder}"
+        }
     },
 }
