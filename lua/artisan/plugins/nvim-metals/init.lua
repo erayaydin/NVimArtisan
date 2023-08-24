@@ -7,6 +7,7 @@ end
 local config = metals.bare_config()
 config.settings = {
   showImplicitArguments = true,
+  sbtScript = "/usr/bin/sbt -ivy /home/eray/.local/share/ivy2 -sbt-dir /home/eray/.local/share/sbt",
   excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 }
 
