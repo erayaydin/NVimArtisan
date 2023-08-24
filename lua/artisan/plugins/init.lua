@@ -458,6 +458,7 @@ return {
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
             "olimorris/neotest-phpunit",
+            "theutz/neotest-pest",
         },
         config = function()
             require("artisan.plugins.neotest")

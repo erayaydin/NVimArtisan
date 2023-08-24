@@ -22,6 +22,7 @@
   "mason.nvim": { "branch": "main", "commit": "a51c2d063c5377ee9e58c5f9cda7c7436787be72" },
   "neoscroll.nvim": { "branch": "master", "commit": "4bc0212e9f2a7bc7fe7a6bceb15b33e39f0f41fb" },
   "neotest": { "branch": "master", "commit": "bec7be0f13ee19c85561943fc5f7b8daa4f4d465" },
+  "neotest-pest": { "branch": "main", "commit": "a50582719267a847c84e1564e97c698d994f883c" },
   "neotest-phpunit": { "branch": "main", "commit": "4e23b92d85a09b9731458ff7058ece4113c5d736" },
   "null-ls.nvim": { "branch": "main", "commit": "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7" },
   "nvim-autopairs": { "branch": "master", "commit": "ae5b41ce880a6d850055e262d6dfebd362bb276e" },
