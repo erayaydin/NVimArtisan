@@ -414,6 +414,7 @@ return {
 
     {
         'j-hui/fidget.nvim',
+        tag = 'legacy',
         config = function()
             require("artisan.plugins.fidget")
         end,
