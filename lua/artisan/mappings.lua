@@ -163,8 +163,19 @@ local mappings = {
         },
     },
     Terminal = {
+        n = {
+            ["<leader>gt"] = { "<CMD>FloatermToggle<CR>", "Toggle floaterm" },
+            ["<leader>gn"] = { "<CMD>FloatermNew<CR>", "New floaterm" },
+            ["<leader>gj"] = { "<CMD>FloatermPrev<CR>", "Previous term" },
+            ["<leader>gk"] = { "<CMD>FloatermNext<CR>", "Next term" },
+        },
         t = {
             ["<leader><esc>"] = { [[<C-\><C-N>]], "Escape terminal" },
+
+            ["<leader>gt"] = { "<CMD>FloatermToggle<CR>", "Toggle floaterm" },
+            ["<leader>gn"] = { "<CMD>FloatermNew<CR>", "New floaterm" },
+            ["<leader>gj"] = { "<CMD>FloatermPrev<CR>", "Previous term" },
+            ["<leader>gk"] = { "<CMD>FloatermNext<CR>", "Next term" },
 
             ["<C-H>"] = { "<C-\\><C-N><C-W>h", "Jump to left" },
             ["<C-J>"] = { "<C-\\><C-N><C-W>j", "Jump to down" },
@@ -201,7 +212,7 @@ local terminal_mappings = {}
 for _, section in pairs(vim.deepcopy(mappings)) do
     for mode, mode_mappings in pairs(section) do
         for keybind, info in pairs(mode_mappings) do
-            if mode == 't' then
+            if mode == "t" then
                 terminal_mappings[keybind] = info
             else
                 local default = merge_tb("force", { mode = mode }, {})
@@ -215,8 +226,8 @@ end
 
 function _G.set_terminal_keymaps()
     for keybind, info in pairs(terminal_mappings) do
-        vim.api.nvim_buf_set_keymap(0, 't', keybind, info[1], { noremap = true })
+        vim.api.nvim_buf_set_keymap(0, "t", keybind, info[1], { noremap = true })
     end
 end
 
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
