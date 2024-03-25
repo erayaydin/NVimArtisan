@@ -7,7 +7,7 @@ if vim.fn.has("nvim-0.9") ~= 1 then
 end
 
 -- Check NVimArtisan installation
-local ok, artisan = pcall(require, "artisan")
+local ok, artisan = pcall(require, "nvim-artisan")
 if not ok then
   error(("Error loading NVimArtisan...\n\n%s"):format(artisan))
 end

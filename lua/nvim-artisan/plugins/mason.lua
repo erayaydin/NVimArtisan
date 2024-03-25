@@ -3,7 +3,7 @@ if not installed then
     return
 end
 
-local path = require('artisan.utils.path')
+local path = require('nvim-artisan.utils.path')
 
 mason.setup({
     -- The directory in which to install packages.

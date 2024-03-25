@@ -2,7 +2,7 @@ local plugin_loader = {}
 
 local fn, opt = vim.fn, vim.opt
 
-local path = require("artisan.utils.path")
+local path = require("nvim-artisan.utils.path")
 
 local lazy_pack_path = path.join(path.data(), "site", "pack", "lazy", "opt")
 

@@ -41,12 +41,12 @@ mason_lspconfig.setup_handlers({
   end,
   -- Manual specific language servers
   ["lua_ls"] = function()
-    require("artisan.lsp.lua-ls")
+    require("nvim-artisan.lsp.lua-ls")
   end,
   ["jsonls"] = function()
-    require("artisan.lsp.jsonls")
+    require("nvim-artisan.lsp.jsonls")
   end,
   ["phpactor"] = function()
-    require("artisan.lsp.phpactor")
+    require("nvim-artisan.lsp.phpactor")
   end,
 })

@@ -41,7 +41,7 @@ return {
   {
     "rcarriga/nvim-notify",
     config = function()
-      require("artisan.plugins.notify")
+      require("nvim-artisan.plugins.notify")
     end,
   },
 
@@ -62,7 +62,7 @@ return {
   {
     "kyazdani42/nvim-tree.lua",
     config = function()
-      require("artisan.plugins.nvim-tree")
+      require("nvim-artisan.plugins.nvim-tree")
     end,
   },
 
@@ -75,7 +75,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("artisan.plugins.lualine")
+      require("nvim-artisan.plugins.lualine")
     end,
   },
 
@@ -89,7 +89,7 @@ return {
       "kyazdani42/nvim-web-devicons",
     },
     config = function()
-      require("artisan.plugins.barbar")
+      require("nvim-artisan.plugins.barbar")
     end,
   },
 
@@ -100,7 +100,7 @@ return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     config = function()
-      require('artisan.plugins.which-key')
+      require('nvim-artisan.plugins.which-key')
     end,
   },
 
@@ -111,7 +111,7 @@ return {
     'goolord/alpha-nvim',
     lazy = false,
     config = function()
-      require('artisan.plugins.alpha')
+      require('nvim-artisan.plugins.alpha')
     end,
   },
 
@@ -134,7 +134,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
     config = function()
-      require('artisan.plugins.nvim-treesitter')
+      require('nvim-artisan.plugins.nvim-treesitter')
     end,
   },
 
@@ -146,7 +146,7 @@ return {
     event = 'BufEnter',
     main = 'ibl',
     config = function()
-      require('artisan.plugins.indent-blankline')
+      require('nvim-artisan.plugins.indent-blankline')
     end,
   },
 
@@ -157,7 +157,7 @@ return {
     'norcalli/nvim-colorizer.lua',
     event = 'BufEnter',
     config = function()
-      require("artisan.plugins.colorizer")
+      require("nvim-artisan.plugins.colorizer")
     end,
   },
 
@@ -192,7 +192,7 @@ return {
     'lewis6991/gitsigns.nvim',
     event = 'BufRead',
     config = function()
-      require('artisan.plugins.gitsigns')
+      require('nvim-artisan.plugins.gitsigns')
     end,
   },
 
@@ -205,7 +205,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      require("artisan.plugins.todo-comments")
+      require("nvim-artisan.plugins.todo-comments")
     end,
   },
 
@@ -261,7 +261,7 @@ return {
     lazy = true,
     config = function()
       ---@diagnostic disable-next-line: different-requires
-      require('artisan.plugins.telescope')
+      require('nvim-artisan.plugins.telescope')
     end,
   },
 
@@ -355,7 +355,7 @@ return {
       'cmp-path',
     },
     config = function()
-      require("artisan.plugins.nvim-cmp")
+      require("nvim-artisan.plugins.nvim-cmp")
     end,
   },
 
@@ -415,7 +415,7 @@ return {
   {
     'williamboman/mason.nvim',
     config = function()
-      require('artisan.plugins.mason')
+      require('nvim-artisan.plugins.mason')
     end,
   },
 
@@ -429,7 +429,7 @@ return {
       'b0o/schemastore.nvim',
     },
     config = function()
-      require('artisan.plugins.mason-lspconfig')
+      require('nvim-artisan.plugins.mason-lspconfig')
     end,
   },
 
@@ -461,7 +461,7 @@ return {
       'nvim-lua/plenary.nvim'
     },
     config = function()
-      require("artisan.plugins.nvim-metals")
+      require("nvim-artisan.plugins.nvim-metals")
     end,
   },
 
@@ -471,7 +471,7 @@ return {
   {
     'nvimtools/none-ls.nvim',
     config = function()
-      require("artisan.plugins.none-ls")
+      require("nvim-artisan.plugins.none-ls")
     end,
   },
 
@@ -490,7 +490,7 @@ return {
     'folke/trouble.nvim',
     dependencies = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require("artisan.plugins.trouble")
+      require("nvim-artisan.plugins.trouble")
     end,
   },
 
@@ -504,7 +504,7 @@ return {
   {
     'mfussenegger/nvim-dap',
     config = function()
-      require('artisan.plugins.nvim-dap')
+      require('nvim-artisan.plugins.nvim-dap')
     end,
   },
 
@@ -514,7 +514,7 @@ return {
   {
     'jay-babu/mason-nvim-dap.nvim',
     config = function()
-      require('artisan.plugins.mason-nvim-dap')
+      require('nvim-artisan.plugins.mason-nvim-dap')
     end,
   },
 
@@ -528,7 +528,7 @@ return {
       "nvim-neotest/nvim-nio",
     },
     config = function()
-      require('artisan.plugins.nvim-dap-ui')
+      require('nvim-artisan.plugins.nvim-dap-ui')
     end,
   },
 
@@ -554,7 +554,7 @@ return {
       "nvim-neotest/neotest-vim-test",
     },
     config = function()
-      require("artisan.plugins.neotest")
+      require("nvim-artisan.plugins.neotest")
     end,
   },
 
@@ -610,7 +610,7 @@ return {
     ft = "http",
     dependencies = { 'luarocks.nvim' },
     config = function()
-      require("artisan.plugins.rest")
+      require("nvim-artisan.plugins.rest")
     end,
   },
 
@@ -635,7 +635,7 @@ return {
   {
     'petertriho/nvim-scrollbar',
     config = function()
-      require("artisan.plugins.scrollbar")
+      require("nvim-artisan.plugins.scrollbar")
     end,
   },
 
@@ -661,7 +661,7 @@ return {
       "rcarriga/nvim-notify",
     },
     config = function()
-      require("artisan.plugins.noice")
+      require("nvim-artisan.plugins.noice")
     end,
   },
 
