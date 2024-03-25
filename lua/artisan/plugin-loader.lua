@@ -2,15 +2,15 @@ local plugin_loader = {}
 
 local fn, opt = vim.fn, vim.opt
 
-local path = require('artisan.utils.path')
+local path = require("artisan.utils.path")
 
-local lazy_pack_path = path.join(path.data(), 'site', 'pack', 'lazy', 'opt')
+local lazy_pack_path = path.join(path.data(), "site", "pack", "lazy", "opt")
 
 function plugin_loader.init(opts)
     opts = opts or {}
 
     -- Determine installation path of the plugin manager
-    local install_path = opts.install_path or path.join(lazy_pack_path, 'lazy.nvim')
+    local install_path = opts.install_path or path.join(lazy_pack_path, "lazy.nvim")
 
     -- Install lazy.nvim if its not installed
     if not path.is_directory(install_path) then
@@ -28,9 +28,9 @@ end
 
 function plugin_loader.load(plugins)
     -- Check lazy.nvim installation
-    local installed, lazy = pcall(require, 'lazy')
+    local installed, lazy = pcall(require, "lazy")
     if not installed then
-        print('lazy.nvim not installed!')
+        print("lazy.nvim not installed!")
         return
     end
 
@@ -41,12 +41,10 @@ function plugin_loader.load(plugins)
     local configured = xpcall(function()
         lazy.setup(plugins, {
             install = {
-                missing = true,
-                -- TODO: add different colorscheme support
-                colorscheme = { 'tokyonight' },
+                colorscheme = { "tokyonight" },
             },
             ui = {
-                border = 'rounded',
+                border = "rounded",
             },
             root = lazy_pack_path,
             git = {
