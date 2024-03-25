@@ -42,7 +42,7 @@ function M.disable_plugins()
 end
 
 function M.disable_plugin(plugin)
-    g['loaded_' .. plugin] = true
+    g["loaded_" .. plugin] = true
 end
 
 function M.disable_providers()
@@ -52,7 +52,7 @@ function M.disable_providers()
 end
 
 function M.disable_provider(provider)
-    g['loaded_' .. provider .. '_provider'] = false
+    g["loaded_" .. provider .. "_provider"] = false
 end
 
 return M
