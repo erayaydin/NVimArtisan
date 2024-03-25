@@ -2,8 +2,8 @@
 pcall(require, "impatient")
 
 -- Check nvim version
-if vim.fn.has('nvim-0.8') ~= 1 then
-    error('Need NeoVim v0.8+')
+if vim.fn.has('nvim-0.9') ~= 1 then
+    error('Need NeoVim v0.9+')
 end
 
 -- Check NVimArtisan installation
