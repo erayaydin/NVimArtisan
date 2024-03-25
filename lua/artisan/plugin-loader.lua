@@ -68,6 +68,4 @@ function plugin_loader.load(plugins)
     end
 end
 
-require("artisan.plugins")
-
 return plugin_loader
