@@ -15,8 +15,8 @@ local mappings = {
             -- Resize
             ["<A-H>"] = { "<CMD>vertical resize +2<CR>", "increase vertical size" },
             ["<A-L>"] = { "<CMD>vertical resize -2<CR>", "decrease vertical size" },
-            ["<A-K>"] = { "<CMD>:resize -2<CR>", "decrease size"},
-            ["<A-J>"] = { "<CMD>:resize +2<CR>", "increase size" },
+            ["<A-J>"] = { "<CMD>:resize -2<CR>", "decrease size" },
+            ["<A-K>"] = { "<CMD>:resize +2<CR>", "increase size" },
 
             -- Save file
             ["<C-S>"] = { "<CMD>w<CR>", "save file" },
@@ -25,6 +25,11 @@ local mappings = {
             -- Line Number
             ["<leader>ln"] = { "<CMD>set nu!<CR>", "toggle line numbers" },
             ["<leader>lr"] = { "<CMD>set rnu!<CR>", "toggle relative number" },
+
+            -- Nvim Tree
+            ["<C-n>"] = { "<CMD>NvimTreeToggle<CR>", "toggle nvimtree" },
+            ["<leader>nr"] = { "<CMD>NvimTreeRefresh<CR>", "refresh nvimtree" },
+            ["<leader>nf"] = { "<CMD>NvimTreeFocus<CR>", "focus nvimtree" },
         },
         v = {
             -- Do not copy the replaced text after pasting
@@ -33,9 +38,6 @@ local mappings = {
             -- Unlimited indent when you visual selected text.
             ["<"] = { "<gv", "indent" },
             [">"] = { ">gv", "indent" },
-
-            -- Carbon now snippet generator
-            ["<leader>cn"] = { ":CarbonNow<CR>", "Generate carbon.now snippet" },
         },
         i = {},
         t = {},
@@ -43,7 +45,6 @@ local mappings = {
     Config = {
         n = {
             ["<leader>ce"] = { ":e $MYVIMRC<CR>", "edit configuration file" },
-            ["<leader>cr"] = { ":source $MYVIMRC<CR>", "reload configuration file" },
         },
     },
     Buffers = {
@@ -90,19 +91,12 @@ local mappings = {
             ["<leader>q"] = { "<cmd>BufferClose<CR>", "Buffer delete" },
         },
     },
-    NvimTree = {
-        n = {
-            ["<C-n>"] = { "<CMD>NvimTreeToggle<CR>", "toggle nvimtree" },
-            ["<leader>nr"] = { "<CMD>NvimTreeRefresh<CR>", "refresh nvimtree" },
-            ["<leader>nf"] = { "<CMD>NvimTreeFocus<CR>", "focus nvimtree" },
-        },
-    },
     LSP = {
         n = {
             ["<leader>e"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Open diagnostic float" },
             ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "goto previous diagnostic" },
             ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "goto next diagnostic" },
-            ["<leader>q"] = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "show diagnostic locations" },
+            ["<leader>aq"] = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "show diagnostic locations" },
             ["<leader>aa"] = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "show all diagnostics in workspace" },
             ["<leader>ae"] = { "<CMD>lua vim.diagnostic.setqflist({severity = \"E\"})<CR>",
                 "show error diagnostics in workspace" },
@@ -126,10 +120,6 @@ local mappings = {
     Trouble = {
         n = {
             ["<leader>tt"] = { "<CMD>TroubleToggle<CR>", "Toggle Trouble window" },
-            ["<leader>tw"] = { "<CMD>TroubleToggle workspace_diagnostic<CR>", "Toggle Trouble window with workspace diagnostics" },
-            ["<leader>td"] = { "<CMD>TroubleToggle document_diagnostic<CR>", "Toggle Trouble window with document only diagnostics" },
-            ["<leader>tq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle Trouble window for quickfix items" },
-            ["<leader>tl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle Trouble window for location list" },
         }
     },
     DAP = {
@@ -176,18 +166,6 @@ local mappings = {
             ["<leader>gn"] = { "<CMD>FloatermNew<CR>", "New floaterm" },
             ["<leader>gj"] = { "<CMD>FloatermPrev<CR>", "Previous term" },
             ["<leader>gk"] = { "<CMD>FloatermNext<CR>", "Next term" },
-
-            ["<C-H>"] = { "<C-\\><C-N><C-W>h", "Jump to left" },
-            ["<C-J>"] = { "<C-\\><C-N><C-W>j", "Jump to down" },
-            ["<C-K>"] = { "<C-\\><C-n><C-w>k", "Jump to up" },
-            ["<C-L>"] = { "<C-\\><C-n><C-w>l", "Jump to right" },
-        },
-    },
-    Rest = {
-        n = {
-            ["<leader>hr"] = { "<Plug>RestNvim", "Run REST Http Request" },
-            ["<leader>hc"] = { "<Plug>RestNvimPreview", "Show Http Request Preview (curl)" },
-            ["<leader>hl"] = { "<Plug>RestNvimLast", "Re-run last REST HTTP Request" },
         },
     },
 }
