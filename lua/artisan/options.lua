@@ -30,7 +30,7 @@ opt.smarttab = true
 
 -- Number of spaces to use for each step of indent
 -- Default: 8
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 
 -- Enable smart autoindenting when starting a new line
 -- Default: false
@@ -85,7 +85,7 @@ opt.splitright = true
 
 -- Number of spaces that a <Tab> counts for
 -- Default: 8
-opt.tabstop = 4
+opt.tabstop = 2
 
 -- Enable 24-bit RGB color
 -- Default: false
