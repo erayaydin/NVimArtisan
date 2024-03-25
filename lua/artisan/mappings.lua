@@ -30,6 +30,7 @@ local mappings = {
             ["<C-n>"] = { "<CMD>NvimTreeToggle<CR>", "toggle nvimtree" },
             ["<leader>nr"] = { "<CMD>NvimTreeRefresh<CR>", "refresh nvimtree" },
             ["<leader>nf"] = { "<CMD>NvimTreeFocus<CR>", "focus nvimtree" },
+            ["<leader>ne"] = { "<CMD>NvimTreeFindFile<CR>", "Show current file in nvimtree" },
         },
         v = {
             -- Do not copy the replaced text after pasting
@@ -44,7 +45,7 @@ local mappings = {
     },
     Config = {
         n = {
-            ["<leader>ce"] = { ":e $MYVIMRC<CR>", "edit configuration file" },
+            ["<leader>ve"] = { ":e $MYVIMRC<CR>", "edit configuration file" },
         },
     },
     Buffers = {
@@ -91,6 +92,13 @@ local mappings = {
             ["<leader>q"] = { "<cmd>BufferClose<CR>", "Buffer delete" },
         },
     },
+    Misc = {
+      n = {
+        ["<leader>cr"] = { "<CMD>ColorizerToggle<CR>", "Toggle colorizer" },
+        ["<leader>wt"] = { "<CMD>Twilight<CR>", "Toggle twilight" },
+        ["<C-g>"] = { "<CMD>FloatermNew lazygit<CR>", "Toggle lazygit" },
+      },
+    },
     LSP = {
         n = {
             ["<leader>e"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Open diagnostic float" },
@@ -102,6 +110,10 @@ local mappings = {
                 "show error diagnostics in workspace" },
             ["<leader>aw"] = { "<CMD>lua vim.diagnostic.setqflist({severity = \"W\"})<CR>",
                 "show warn diagnostics in workspace" },
+            ["<leader>acc"] = { "<CMD>ToggleDiag<CR>", "Toggle diagnostics" },
+            ["<leader>acs"] = { "<Plug>(toggle-lsp-diag-signs)", "Toggle diagnostic signs" },
+            ["<leader>acv"] = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle diagnostic virtual texts" },
+            ["<leader>acu"] = { "<Plug>(toggle-lsp-diag-underline)", "Toggle diagnostic underline" },
 
             ["gD"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "go to definition" },
             ["gs"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
@@ -116,6 +128,22 @@ local mappings = {
             ["<leader>ca"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "show code actions" },
             ["<leader>cl"] = { "<CMD>lua vim.lsp.codelens.run()<CR>", "run code lens" },
         },
+    },
+    Test = {
+      n = {
+        ["<leader>tn"] = {
+          function()
+            require("neotest").run.run()
+          end,
+          "Test nearest"
+        },
+        ["<leader>tf"] = {
+          function()
+            require("neotest").run.run(vim.fn.expand('%'))
+          end,
+          "Test file"
+        },
+      }
     },
     Trouble = {
         n = {
@@ -133,6 +161,11 @@ local mappings = {
             ["<leader>dl"] = { "<CMD>lua require(\"dap\").run_last()<CR>", "Run last" },
             ["<leader>du"] = { "<CMD>lua require(\"dapui\").toggle()<CR>", "Toggle Dap UI" },
         },
+    },
+    DB = {
+      n = {
+        ["<leader>db"] = { "<CMD>DBUI<CR>", "Run database ui" },
+      },
     },
     Telescope = {
         n = {
