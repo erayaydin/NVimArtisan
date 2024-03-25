@@ -6,17 +6,6 @@ return {
     tag = "stable",
   },
 
-  -- Performance {{{
-
-  -- Filetype
-  -- Replacement for the included filetype.vim
-  -- Repo: https://github.com/nathom/filetype.nvim
-  {
-    "nathom/filetype.nvim",
-  },
-
-  -- }}}
-
   -- Utilities {{{
 
   -- Plenary
