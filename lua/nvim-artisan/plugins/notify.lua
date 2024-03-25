@@ -1,7 +1,7 @@
 local installed, notify = pcall(require, "notify")
 
 if not installed then
-    return
+  return
 end
 
 vim.notify = notify
@@ -10,5 +10,5 @@ vim.notify_once = notify
 -- Register for telescope if possible
 local telescope_installed, telescope = pcall(require, "telescope")
 if telescope_installed then
-    telescope.load_extension("notify")
+  telescope.load_extension("notify")
 end

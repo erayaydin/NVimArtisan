@@ -20,4 +20,3 @@ mason_nvim_dap.setup({
     -- @See https://github.com/jay-babu/mason-nvim-dap.nvim/issues/124
   },
 })
-

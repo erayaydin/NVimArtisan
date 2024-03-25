@@ -1,32 +1,31 @@
 local installed, ibl = pcall(require, "ibl")
 
 if not installed then
-    return
+  return
 end
 
 ibl.setup({
-    scope = {
-        show_end = true,
+  scope = {
+    show_end = true,
+  },
+  exclude = {
+    filetypes = {
+      "help",
+      "terminal",
+      "packer",
+      "lspinfo",
+      "vista_king",
+      "alpha",
+      'mason',
     },
-    exclude = {
-        filetypes = {
-            "help",
-            "terminal",
-            "packer",
-            "lspinfo",
-            "vista_king",
-            "alpha",
-            'mason',
-        },
-        buftypes = {
-            "terminal",
-        },
+    buftypes = {
+      "terminal",
     },
-    indent = {
-        char = "▏",
-    },
-    whitespace = {
-        remove_blankline_trail = false,
-    },
+  },
+  indent = {
+    char = "▏",
+  },
+  whitespace = {
+    remove_blankline_trail = false,
+  },
 })
-

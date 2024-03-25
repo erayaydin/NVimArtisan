@@ -1,18 +1,18 @@
 local installed, trouble = pcall(require, "trouble")
 
 if not installed then
-    return
+  return
 end
 
 trouble.setup(
-    {
-        auto_close = true,
-        signs = {
-            error = "",
-            warning = "",
-            hint = "",
-            information = "",
-            other = "﫠"
-        },
-    }
+  {
+    auto_close = true,
+    signs = {
+      error = "",
+      warning = "",
+      hint = "",
+      information = "",
+      other = "﫠"
+    },
+  }
 )

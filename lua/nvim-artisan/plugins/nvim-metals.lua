@@ -1,7 +1,7 @@
 local installed, metals = pcall(require, "metals")
 
 if not installed then
-    return
+  return
 end
 
 local config = metals.bare_config()
