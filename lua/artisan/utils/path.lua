@@ -1,9 +1,9 @@
 local M = {
-    sep = package.config:sub(1, 1) == '\\' and '\\' or '/',
+    sep = package.config:sub(1, 1) == "\\" and "\\" or "/",
     env = {
-        data = 'NVIMARTISAN_DATAPATH',
-        config = 'NVIMARTISAN_CONFIGPATH',
-        cache = 'NVIMARTISAN_CACHEPATH',
+        data = "NVIMARTISAN_DATAPATH",
+        config = "NVIMARTISAN_CONFIGPATH",
+        cache = "NVIMARTISAN_CACHEPATH",
     },
 }
 
