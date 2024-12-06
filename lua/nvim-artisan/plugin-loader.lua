@@ -41,7 +41,11 @@ function plugin_loader.load(plugins)
   local configured = xpcall(function()
     lazy.setup(plugins, {
       install = {
-        colorscheme = { "tokyonight" },
+        colorscheme = { "tokyonight", "habamax" },
+      },
+      checker = {
+        enabled = true,
+        notify = false,
       },
       ui = {
         border = "rounded",
@@ -53,7 +57,13 @@ function plugin_loader.load(plugins)
       lockfile = path.join(path.config(), "lazy-lock.json"),
       performance = {
         rtp = {
-          reset = false,
+          disabled_plugins = {
+            "gzip",
+            "tarPlugin",
+            "tohtml",
+            "tutor",
+            "zipPlugin",
+          },
         },
       },
       readme = {
