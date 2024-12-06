@@ -207,7 +207,7 @@ local bind
 
 if installed then
   bind = function(keybind, info, opts)
-    which_key.register({ [keybind] = info }, opts)
+    which_key.add({{ keybind, info[1], desc = info[2], mode = opts.mode }})
   end
 else
   bind = function(keybind, info, opts)
