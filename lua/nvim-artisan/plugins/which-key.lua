@@ -9,21 +9,23 @@ wk.setup({
     separator = "➜",
     group = "+",
   },
-  popup_mappings = {
+  keys = {
     scroll_down = '<c-d>',
     scroll_up = '<c-u>',
   },
-  key_labels = {
-    ["<space>"] = "SPC",
-    ["<leader>"] = "LEA",
-    ["<cr>"] = "ENT",
-    ["<tab>"] = "TAB",
-    ["<a>"] = "ALT",
-    ["<s>"] = "SHI",
-    ["<c>"] = "CTR",
-    ["<d>"] = "CMD",
+  replace = {
+    key = {
+      { "<SPACE>", "SPC" },
+      { "<LEADER>", "LEA" },
+      { "<CR>", "ENT" },
+      { "<TAB>", "TAB" },
+      { "<A>", "ALT" },
+      { "<S>", "SHI" },
+      { "<C>", "CTR" },
+      { "<D>", "CMD" },
+    },
   },
-  window = {
+  win = {
     border = "single",
   },
 })
