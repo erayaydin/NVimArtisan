@@ -1,4 +1,7 @@
 -- vim:foldmethod=marker
+
+local snacks = require("nvim-artisan.plugins.snacks")
+
 return {
   -- Lazy.nvim itself
   {
@@ -31,6 +34,24 @@ return {
     "rcarriga/nvim-notify",
     config = function()
       require("nvim-artisan.plugins.notify")
+    end,
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = function ()
+      snacks.config()
+    end,
+    keys = {
+      { "<leader>.", snacks.scratch, desc = "Toggle Scratch Buffer" },
+      { "<leader>S", snacks.selectScratch, desc = "Select Scratch Buffer" },
+      { "<leader>n", snacks.showNotifications, desc = "Notification History" },
+      { "<leader>un", snacks.hideNotifications, desc = "Dismiss All Notifications" },
+    },
+    config = function()
+      snacks.setup()
     end,
   },
 
@@ -204,26 +225,6 @@ return {
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
-  },
-
-  -- Laravel
-  -- Laravel helper
-  -- Repo: https://github.com/adalessa/laravel.nvim
-  {
-    'adalessa/laravel.nvim',
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "tpope/vim-dotenv",
-      "MunifTanjim/nui.nvim",
-      "nvimtools/none-ls.nvim",
-    },
-    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
-    event = 'VeryLazy',
-    config = function()
-      require('laravel').setup()
-
-      require('telescope').load_extension('laravel')
-    end,
   },
 
   -- }}}
@@ -597,7 +598,6 @@ return {
   {
     'rest-nvim/rest.nvim',
     ft = "http",
-    dependencies = { 'luarocks.nvim' },
     config = function()
       require("nvim-artisan.plugins.rest")
     end,
