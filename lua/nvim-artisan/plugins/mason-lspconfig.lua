@@ -44,7 +44,7 @@ mason_lspconfig.setup_handlers({
     require("nvim-artisan.lsp.lua-ls")
   end,
   ["jsonls"] = function()
-    require("nvim-artisan.lsp.jsonls")
+    require("nvim-artisan.lsp.json")
   end,
   ["phpactor"] = function()
     require("nvim-artisan.lsp.phpactor")
