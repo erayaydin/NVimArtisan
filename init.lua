@@ -2,8 +2,8 @@
 vim.loader.enable()
 
 -- Check nvim version
-if vim.fn.has("nvim-0.9") ~= 1 then
-  error("Need NeoVim v0.9+")
+if vim.fn.has("nvim-0.10") ~= 1 then
+  error("Need NeoVim v0.10+")
 end
 
 -- Check NVimArtisan installation
