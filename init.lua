@@ -1,23 +1,16 @@
--- Start impatient ASAP
-pcall(require, "impatient")
+-- Enable experimental lua module loader to speed up
+vim.loader.enable()
 
--- Set options
-require("artisan.options")
+-- Check nvim version
+if vim.fn.has("nvim-0.10") ~= 1 then
+  error("Need NeoVim v0.10+")
+end
 
--- Disable builtin providers and plugins
-require("artisan.builtin")
+-- Check NVimArtisan installation
+local ok, artisan = pcall(require, "nvim-artisan")
+if not ok then
+  error(("Error loading NVimArtisan...\n\n%s"):format(artisan))
+end
 
--- Read ShaDa file
-require("artisan.shada")
-
--- Set mappings
-require("artisan.mappings")
-
--- Install plugin loader and plugins
-require("artisan.plugin-loader")
-
--- Show notification
-vim.notify_once("NVimArtisan v0.3.0 loaded!", "info", {
-    title = "NVimArtisan",
-    timeout = 500,
-})
+-- Start NVimArtisan
+artisan:run()
